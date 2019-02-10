@@ -1,0 +1,3 @@
+[submodule "themes/husky"]
+	path = themes/husky
+	url = git@github.com:huskyhoochu/hugo-husky-theme.git
