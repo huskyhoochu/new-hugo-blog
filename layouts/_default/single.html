@@ -1,0 +1,23 @@
+{{ define "main" }}
+<main class="mx-2" role="main">
+  <h1 class="lg:text-4xl sm:text-3xl">{{ .Title }}</h1>
+  <p class="text-grey-darker">{{ .Params.subtitles }}</p>
+  <div class="mt-4">
+    <p>by
+      <a href="{{ .Params.author_github }}" class="font-semibold" target="_blank" rel="noopener noreferrer">
+        {{ .Params.authors }}
+      </a>
+    </p>
+    <p class="text-sm text-grey-darker">
+      <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+      <span> | </span>
+      <span>{{ .ReadingTime }} min read</span>
+    </p>
+  </div>
+  <hr class="border border-grey"/>
+  <div id="content" class="my-8">
+    {{ .Content }}
+  </div>
+  <hr class="border border-grey"/>
+</main>
+{{ end }}

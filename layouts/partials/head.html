@@ -1,0 +1,17 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+{{ $normalize := resources.Get "css/normalize.css" | postCSS (dict "config" "./assets/js/dev/postcss.config.js") | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $normalize.Permalink }}" integrity="{{ $normalize.Data.Integrity }}">
+{{ $custom := resources.Get "css/custom.css" | postCSS (dict "config" "./assets/js/dev/postcss.config.js") | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $custom.Permalink }}" integrity="{{ $custom.Data.Integrity }}">
+{{ if .Site.IsServer }}
+  {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/js/dev/postcss.config.js") | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" data>
+{{ else }}
+  {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/js/postcss.config.js")  | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+{{ end }}
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>

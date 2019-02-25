@@ -1,0 +1,22 @@
+{
+  "name": "new_husky",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:huskyhoochu/new-hugo-blog.git",
+  "author": "huskyhoochu <dfg1499@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clear": "rm -rf public",
+    "build": "yarn clear && hugo --gc",
+    "start": "hugo server -D",
+    "deploy": "./deploy.sh"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.1.0",
+    "autoprefixer": "^9.4.7",
+    "postcss": "^7.0.14",
+    "postcss-cli": "^6.1.1",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^0.7.4"
+  }
+}

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="ko">
+    {{- partial "head.html" . -}}
+    <body class="font-sans antialiased container leading-normal">
+        {{- partial "header.html" . -}}
+        {{- block "main" . }}{{- end }}
+        {{- partial "footer.html" . -}}
+    </body>
+</html>

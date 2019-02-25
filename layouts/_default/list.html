@@ -1,0 +1,41 @@
+{{ define "main" }}
+<ul class="list-reset" role="main">
+  {{ range .Paginator.Pages }}
+    <li>
+        <div class="
+          flex items-center justify-between
+          border-b border-grey
+          hover:shadow-md
+          my-4 lg:p-4 sm:p-2"
+        >
+          <div class="mr-1 lg:max-w-sm md:max-w-12">
+              <p class="text-sm">
+                {{ if .Params.tags }}
+                  {{ range .Params.tags }}
+                    <a class="lg:text-sm sm:text-xs text-blue font-bold" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                  {{ end }}
+                {{ end }}
+              </p>
+              <a href="{{ .Permalink }}">
+                <h2 class="lg:text-2xl sm:text-xl" style="word-break: keep-all;">{{ .Title }}</h2>
+              </a>
+              <p class="lg:text-sm sm:text-xs text-grey-darker">{{ .Params.subtitles }}</p>
+          </div>
+          <div class="text-grey-darker">
+              <p>by
+                  <a href="{{ .Params.author_github }}" class="font-semibold" target="_blank" rel="noopener noreferrer">
+                    {{ .Params.authors }}
+                  </a>
+              </p>
+            <p class="lg:text-sm sm:text-xs">
+              <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+              <span class="lg:inline sm:hidden"> | </span>
+              <span class="lg:inline sm:block">{{ .ReadingTime }} min read</span>
+            </p>
+          </div>
+        </div>
+    </li>
+  {{ end }}
+</ul>
+{{ template "_internal/pagination.html" . }}
+{{ end }}

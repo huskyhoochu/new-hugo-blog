@@ -1,3 +1,9 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+languageCode = "ko-kr"
+title = "90Days 기술 블로그"
+hasCJKLanguage = true
+pygmentsStyle = "pastie"
+
+[taxonomies]
+tag = "tags"
+author = "authors"
+subtitle = "subtitles"
