@@ -12,6 +12,20 @@ body a {
   text-decoration: none;
 }
 
+#content p {
+  margin: 1rem 0;
+  text-align: justify;
+}
+
+#content h4,
+#content h6 {
+  margin-top: 2rem;
+}
+
+#content h4 {
+  font-size: 1.25rem;
+}
+
 pre {
   /* grey-lightest */
   background-color: #f8fafc !important;
@@ -25,9 +39,10 @@ blockquote {
   border: 1px solid #3490dc;
   border-left-width: 0.5rem;
   padding: 0.5rem;
-  margin: 1rem 0;
+  margin: 2rem 0;
   /* grey-darker */
   color: #606f7b;
+  font-size: 0.9rem;
 }
 
 /* Pagination */

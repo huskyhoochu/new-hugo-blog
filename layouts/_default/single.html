@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main class="mx-2" role="main">
-  <h1 class="lg:text-4xl sm:text-3xl">{{ .Title }}</h1>
+  <h1 class="lg:text-4xl sm:text-2xl">{{ .Title }}</h1>
   <p class="text-grey-darker">{{ .Params.subtitles }}</p>
   <div class="mt-4">
     <p>by
@@ -13,8 +13,14 @@
       <span> | </span>
       <span>{{ .ReadingTime }} min read</span>
     </p>
+    <p class="text-sm">
+        {{ if .Params.tags }}
+          {{ range .Params.tags }}
+            <a class="lg:text-sm sm:text-xs text-blue font-bold" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        {{ end }}
+    </p>
   </div>
-  <hr class="border border-grey"/>
   <div id="content" class="my-8">
     {{ .Content }}
   </div>
