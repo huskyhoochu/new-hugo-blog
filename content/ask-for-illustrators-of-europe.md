@@ -2,7 +2,7 @@
 title: "최혜진, <유럽의 그림책 작가들에게 묻다>"
 subtitles: "예술은 자존감을 지키는 도구 이상이 될 수 있을까?"
 date: 2017-10-23T22:05:26+09:00
-draft: true
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 tags: ["book"]

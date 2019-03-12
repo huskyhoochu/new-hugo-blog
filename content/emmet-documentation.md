@@ -2,7 +2,7 @@
 title: "Emmet 기본 사용법"
 subtitles: "한국어 발음은 '에멧' 과 '에밋' 사이"
 date: 2017-11-25T20:08:26+09:00
-draft: true
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 tags: ["frontend"]
