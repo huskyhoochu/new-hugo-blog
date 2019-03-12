@@ -26,6 +26,20 @@ body a {
   font-size: 1.25rem;
 }
 
+#content h6 {
+  font-size: 0.9rem;
+}
+
+#content p > code {
+  color: #d20;
+  background-color: #fff0f0;
+}
+
+#content li > code {
+  color: #d20;
+  background-color: #fff0f0;
+}
+
 pre {
   /* grey-lightest */
   background-color: #f8fafc !important;
