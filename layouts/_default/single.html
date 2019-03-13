@@ -16,7 +16,7 @@
     <p class="text-sm">
         {{ if .Params.tags }}
           {{ range .Params.tags }}
-            <a class="lg:text-sm sm:text-xs text-blue font-bold" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+            <a class="lg:text-sm sm:text-xs text-blue font-bold mr-1" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
           {{ end }}
         {{ end }}
     </p>
