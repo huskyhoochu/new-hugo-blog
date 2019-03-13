@@ -96,3 +96,17 @@ blockquote {
   color: #b8c2cc;
   cursor: not-allowed;
 }
+
+/* table */
+table {
+  line-height: 2;
+}
+
+thead {
+  /* grey */
+  border-bottom: 1px solid #b8c2cc;
+}
+
+td {
+  padding: 0 0.5rem;
+}
