@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main class="mx-2" role="main">
-  <h1 class="lg:text-4xl sm:text-2xl">{{ .Title }}</h1>
+  <h1 class="text-black lg:text-4xl sm:text-2xl">{{ .Title }}</h1>
   <p class="text-grey-darker">{{ .Params.subtitles }}</p>
   <div class="mt-4">
     <p>by
@@ -21,7 +21,7 @@
         {{ end }}
     </p>
   </div>
-  <div id="content" class="my-8">
+  <div id="content" class="text-black my-8">
     {{ .Content }}
   </div>
   <hr class="border border-grey"/>
