@@ -5,6 +5,7 @@ date: 2018-11-05T17:27:00+09:00
 draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
+images: ["/favicon_package/android-chrome-512x512.png"]
 tags: ["frontend", "javascript"]
 ---
 

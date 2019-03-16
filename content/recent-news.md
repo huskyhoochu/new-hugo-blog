@@ -5,6 +5,7 @@ date: 2019-03-12T01:13:29+09:00
 draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
+images: ["/favicon_package/android-chrome-512x512.png"]
 tags: ["diary"]
 ---
 

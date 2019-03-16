@@ -6,6 +6,7 @@ draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 tags: ["diary"]
+images: ["/favicon_package/android-chrome-512x512.png"]
 ---
 
 ![macbook](./macbook.jpg)
