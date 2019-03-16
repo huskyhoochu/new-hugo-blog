@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "hugo-blog",
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@now/static"
+    }
+  ]
+}

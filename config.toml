@@ -1,3 +1,4 @@
+baseURL="https://www.huskyhoochu.com/"
 languageCode = "ko-kr"
 title = "HuskyHoochu 기술 블로그"
 hasCJKLanguage = true
