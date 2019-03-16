@@ -1,6 +1,6 @@
 ---
 title: "github 하나로 1인 개발 워크플로우 완성하기: 실전 편"
-subtitles: "딱 일곱 단계로 끝장내는 이슈 기반 버전 관리"
+description: "딱 일곱 단계로 끝장내는 이슈 기반 버전 관리"
 date: 2018-08-25T17:55:00+09:00
 draft: false
 authors: "Husky"

@@ -1,6 +1,6 @@
 ---
 title: "husky로 손쉽게 git hook 관리하기"
-subtitles: "프로그램 이름이 블로그 이름하고 같은 건 우연이에요 ㅎㅎ"
+description: "프로그램 이름이 블로그 이름하고 같은 건 우연이에요 ㅎㅎ"
 date: 2018-08-20T05:35:00+09:00
 draft: false
 authors: "Husky"

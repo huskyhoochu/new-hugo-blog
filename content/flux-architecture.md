@@ -1,6 +1,6 @@
 ---
 title: "'데이터가 폭포수처럼 흘러내려' React의 flux 패턴"
-subtitles: "facebook이 제안한 디자인 패턴인 flux에 관해 알아봅시다"
+description: "facebook이 제안한 디자인 패턴인 flux에 관해 알아봅시다"
 date: 2018-11-09T14:26:00+09:00
 draft: false
 authors: "Husky"

@@ -1,6 +1,6 @@
 ---
 title: "디스할 수 없는 너, this"
-subtitles: "자바스크립트에서 가장 불가사의한 키워드, 'this' 를 파헤쳐봅시다"
+description: "자바스크립트에서 가장 불가사의한 키워드, 'this' 를 파헤쳐봅시다"
 date: 2018-11-05T17:27:00+09:00
 draft: false
 authors: "Husky"

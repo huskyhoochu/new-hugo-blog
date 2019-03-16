@@ -1,6 +1,6 @@
 ---
 title: "github 하나로 1인 개발 워크플로우 완성하기: 이론 편"
-subtitles: "git으로 백업만 하셨던 분들 여기여기 붙어라~"
+description: "git으로 백업만 하셨던 분들 여기여기 붙어라~"
 date: 2018-08-25T07:50:00+09:00
 draft: false
 authors: "Husky"

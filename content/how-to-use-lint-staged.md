@@ -1,6 +1,6 @@
 ---
 title: "lint-staged로 eslint 세상 편하게 자동화하기"
-subtitles: "eslint, git hook에 얹어 쓰면 얼~마나 편하게요?"
+description: "eslint, git hook에 얹어 쓰면 얼~마나 편하게요?"
 date: 2018-08-13T18:14:28+09:00
 draft: false
 authors: "Husky"

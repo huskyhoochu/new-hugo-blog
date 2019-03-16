@@ -1,6 +1,6 @@
 ---
 title: "Reconciliation: React의 렌더링 알고리즘"
-subtitles: "react가 virtual DOM을 업데이트하는 핵심 원리는 무엇일까?"
+description: "react가 virtual DOM을 업데이트하는 핵심 원리는 무엇일까?"
 date: 2018-11-17T19:30:00+09:00
 draft: false
 authors: "Husky"

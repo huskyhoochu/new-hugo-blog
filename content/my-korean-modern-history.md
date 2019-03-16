@@ -1,6 +1,6 @@
 ---
 title: "유시민, <나의 한국 현대사>"
-subtitles: "민주화세대와 산업화세대의 화해를 꿈꾸며"
+description: "민주화세대와 산업화세대의 화해를 꿈꾸며"
 date: 2017-10-12T12:52:06+09:00
 draft: false
 authors: "Husky"

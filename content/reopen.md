@@ -1,6 +1,6 @@
 ---
 title: "Hugo 기반 블로그 새단장"
-subtitles: Gatsby 블로그에서 Hugo 블로그로 사이트를 개편했습니다
+description: Gatsby 블로그에서 Hugo 블로그로 사이트를 개편했습니다
 date: 2019-03-14T01:38:21+09:00
 draft: false
 authors: "Husky"

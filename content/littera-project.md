@@ -1,6 +1,6 @@
 ---
 title: "9월엔 블로그 운영이 뜸해지겠습니다"
-subtitles: "새로운 외주 프로젝트, 새로운 삽질의 시작"
+description: "새로운 외주 프로젝트, 새로운 삽질의 시작"
 date: 2018-09-04T13:18:00+09:00
 draft: false
 authors: "Husky"

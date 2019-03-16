@@ -1,6 +1,6 @@
 ---
 title: "2018 개발자 추천 블로그 10선"
-subtitles: "(저 같은) 초보 개발자에게 피가 되고 살이 되는 블로그 모음"
+description: "(저 같은) 초보 개발자에게 피가 되고 살이 되는 블로그 모음"
 date: 2018-08-20T14:41:00+09:00
 draft: false
 authors: "Husky"
