@@ -4,8 +4,9 @@
   "alias": ["huskyhoochu.com", "www.huskyhoochu.com"],
   "builds": [
     {
-      "src": "index.html",
-      "use": "@now/static"
+      "src": "build.sh",
+      "use": "@now/static-build",
+      "config": { "distDir": "public" }
     }
   ]
 }
