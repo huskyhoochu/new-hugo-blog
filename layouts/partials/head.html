@@ -3,6 +3,15 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon_package/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_package/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_package/favicon-16x16.png">
+<link rel="manifest" href="/favicon_package/site.webmanifest">
+<link rel="mask-icon" href="/favicon_package/safari-pinned-tab.svg" color="#12283a">
+<meta name="msapplication-config" content="/favicon_package/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+{{ template "_internal/opengraph.html" . }}
 {{ $normalize := resources.Get "css/normalize.css" | postCSS (dict "config" "./assets/js/dev/postcss.config.js") | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $normalize.Permalink }}" integrity="{{ $normalize.Data.Integrity }}">
 {{ $custom := resources.Get "css/custom.css" | postCSS (dict "config" "./assets/js/dev/postcss.config.js") | minify | fingerprint }}

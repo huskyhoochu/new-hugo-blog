@@ -1,8 +1,11 @@
 baseURL="https://www.huskyhoochu.com/"
 languageCode = "ko-kr"
-title = "HuskyHoochu 기술 블로그"
+title = "Huskyhoochu 기술 블로그"
 hasCJKLanguage = true
 pygmentsStyle = "pastie"
+
+[params]
+description = "허스키후추의 개발 스토리와 여러 끄적거림을 담아둔 공간입니다."
 
 [taxonomies]
 tag = "tags"

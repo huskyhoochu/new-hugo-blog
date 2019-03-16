@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "hugo-blog",
+  "alias": ["huskyhoochu.com", "www.huskyhoochu.com"],
   "builds": [
     {
       "src": "index.html",
