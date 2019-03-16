@@ -1,7 +1,5 @@
 #! /usr/bin/env bash
 
-yarn build
-
 now
 
 now ls hugo-blog
