@@ -25,5 +25,36 @@
     {{ .Content }}
   </div>
   <hr class="border border-grey"/>
+  <div class="flex items-center justify-between">
+      {{ with .NextPage }}
+        <a class="previous" href="{{.Permalink}}">
+          <button class="rounded p-2 my-2
+                          border hover:border-blue
+                          text-blue hover:text-white
+                          bg-white hover:bg-blue">
+            ⬅︎
+          </button>
+        </a>
+      {{ end }}
+      <a class="list" href="{{ .Site.BaseURL }}">
+        <button class="rounded w-48 p-2 my-2
+                        text-center font-bold
+                        border hover:border-blue
+                        text-blue hover:text-white
+                        bg-white hover:bg-blue">
+          List
+        </button>
+      </a>
+    {{ with .PrevPage }}
+      <a class="next" href="{{.Permalink}}">
+        <button class="rounded p-2 my-2
+                        border hover:border-blue
+                        text-blue hover:text-white
+                        bg-white hover:bg-blue">
+            ➡︎
+        </button>
+      </a>
+    {{ end }}
+</div>
 </main>
 {{ end }}
