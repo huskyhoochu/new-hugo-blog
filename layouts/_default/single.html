@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="mx-2" role="main">
-  <h1 class="lg:text-4xl sm:text-3xl">{{ .Title }}</h1>
-  <p class="text-grey-darker">{{ .Params.subtitles }}</p>
+  <h1 class="text-black lg:text-4xl sm:text-2xl">{{ .Title }}</h1>
+  <p class="text-grey-darker">{{ .Params.description }}</p>
   <div class="mt-4">
     <p>by
       <a href="{{ .Params.author_github }}" class="font-semibold" target="_blank" rel="noopener noreferrer">
@@ -13,11 +13,48 @@
       <span> | </span>
       <span>{{ .ReadingTime }} min read</span>
     </p>
+    <p class="text-sm">
+        {{ if .Params.tags }}
+          {{ range .Params.tags }}
+            <a class="lg:text-sm sm:text-xs text-blue font-bold mr-1" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        {{ end }}
+    </p>
   </div>
-  <hr class="border border-grey"/>
-  <div id="content" class="my-8">
+  <div id="content" class="text-black my-8">
     {{ .Content }}
   </div>
   <hr class="border border-grey"/>
+  <div class="flex items-center justify-between">
+      {{ with .NextPage }}
+        <a class="previous" href="{{.Permalink}}">
+          <button class="rounded p-2 my-2
+                          border hover:border-blue
+                          text-blue hover:text-white
+                          bg-white hover:bg-blue">
+            ⬅︎
+          </button>
+        </a>
+      {{ end }}
+      <a class="list" href="{{ .Site.BaseURL }}">
+        <button class="rounded w-48 p-2 my-2
+                        text-center font-bold
+                        border hover:border-blue
+                        text-blue hover:text-white
+                        bg-white hover:bg-blue">
+          List
+        </button>
+      </a>
+    {{ with .PrevPage }}
+      <a class="next" href="{{.Permalink}}">
+        <button class="rounded p-2 my-2
+                        border hover:border-blue
+                        text-blue hover:text-white
+                        bg-white hover:bg-blue">
+            ➡︎
+        </button>
+      </a>
+    {{ end }}
+</div>
 </main>
 {{ end }}

@@ -1,10 +1,11 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-subtitles: ""
+description: ""
 date: {{ .Date }}
 draft: true
-authors: ""
-author_github: ""
+authors: "Husky"
+author_github: "https://github.com/huskyhoochu/"
+images: ["/favicon_package/android-chrome-512x512.png"]
 tags: [""]
 ---
 

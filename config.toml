@@ -1,9 +1,17 @@
+baseURL="https://www.huskyhoochu.com/"
 languageCode = "ko-kr"
-title = "90Days 기술 블로그"
+title = "Huskyhoochu 기술 블로그"
 hasCJKLanguage = true
 pygmentsStyle = "pastie"
+copyright = "© 2019 Huskyhoochu"
+googleAnalytics = "UA-100360993-4"
+
+[params]
+images = ["/favicon_package/android-chrome-512x512.png"]
+description = "허스키후추의 개발 스토리와 여러 끄적거림을 담아둔 공간입니다"
+googleVerificationCode = "GgxdKaAIavUipoP0qqmrusNSygoGsdMVZgMtzowaZCo"
 
 [taxonomies]
 tag = "tags"
 author = "authors"
-subtitle = "subtitles"
+description = "description"

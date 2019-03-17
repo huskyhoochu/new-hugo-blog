@@ -1,14 +1,29 @@
 #! /usr/bin/env bash
 
-yarn build
-cd ./public
-cp -r . ../../huskyhoochu.github.io/
-cd ../../huskyhoochu.github.io
-git add .
+echo -e '\n\033[1;32mDeploying Start...\033[0m\n'
 
-# Commit changes.
-msg="rebuilding site `date '+%Y-%m-%d %H:%M:%S'`"
-git commit -m "$msg"
+now
 
-# Push source and build repos.
-git push origin master
+echo -e '\n\033[1;32mDone.\n\nCurrent deploy statement is:\033[0m\n'
+
+now ls hugo-blog
+
+list_url=`now ls hugo-blog`
+
+old_url=`echo ${list_url} | cut -d ' ' -f15`
+
+new_url=`echo ${list_url} | cut -d ' ' -f9`
+
+echo -e '\nNew URL is: \033[1;35m' ${new_url} '\033[0m\n'
+
+now alias ${new_url} www.huskyhoochu.com
+
+echo -e '\nOld URL is: \033[1;35m' ${old_url} '\033[0m\n'
+
+now rm -y ${old_url}
+
+echo -e '\n\033[1;32mDone.\n\nFinal deploy statement is:\033[0m\n'
+
+now ls hugo-blog
+
+echo -e '\n\033[1;32mAll process is done.\033[0m\n'

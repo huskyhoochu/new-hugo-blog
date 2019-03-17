@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" dir="ltr">
     {{- partial "head.html" . -}}
     <body class="font-sans antialiased container leading-normal">
         {{- partial "header.html" . -}}
         {{- block "main" . }}{{- end }}
         {{- partial "footer.html" . -}}
+        {{ template "_internal/google_analytics.html" . }}
     </body>
 </html>

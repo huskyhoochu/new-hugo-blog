@@ -12,14 +12,14 @@
               <p class="text-sm">
                 {{ if .Params.tags }}
                   {{ range .Params.tags }}
-                    <a class="lg:text-sm sm:text-xs text-blue font-bold" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                    <a class="lg:text-sm sm:text-xs text-blue font-bold mr-1" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
                   {{ end }}
                 {{ end }}
               </p>
               <a href="{{ .Permalink }}">
                 <h2 class="lg:text-2xl sm:text-xl" style="word-break: keep-all;">{{ .Title }}</h2>
               </a>
-              <p class="lg:text-sm sm:text-xs text-grey-darker">{{ .Params.subtitles }}</p>
+              <p class="lg:text-sm sm:text-xs text-grey-darker">{{ .Params.description }}</p>
           </div>
           <div class="text-grey-darker">
               <p>by
