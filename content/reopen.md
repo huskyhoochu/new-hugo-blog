@@ -9,7 +9,7 @@ tags: ["diary"]
 images: ["/favicon_package/android-chrome-512x512.png"]
 ---
 
-![macbook](./macbook.jpg)
+![macbook](/reopen/macbook.jpg)
 
 > *측정되지 않는 것은 관리되지 않는다.*
 >

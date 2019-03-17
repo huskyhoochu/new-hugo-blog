@@ -51,7 +51,7 @@ tags: ["git"]
 **"내가 쓰는 커밋 메시지가 제대로 된 건가?" "브랜치 관리는 대체 어떻게 해야 되지?" "로그 그래프가 뒤죽박죽인데 이래도 되는 건가?"**
 싶은 불안감이 있었습니다.
 
-![spaghetti-branch](./spaghetti_branch.jpg)
+![spaghetti-branch](/issue-based-version-control-101/spaghetti_branch.jpg)
 <p class="caption">패스트캠퍼스 시절 팀 프로젝트 저장소 현황. (이게 브랜치야 지하철 노선도야)</p>
 
 그렇게 **"혼자서 개발하더라도 버전 관리를 똑부러지게 할 수 있는 방법은 없을까?"** 하고 고민하던 중, **⟪팀을 위한 Git⟫**을 발견하고 냅다 질렀습니다.
@@ -75,7 +75,7 @@ tags: ["git"]
 **"그럼 혼자서 작업할 때는 버전 관리가 필요 없다는 건가?"** 라고 질문할 수도 있겠습니다. 전 동의하지 않습니다. '1인 팀도 팀은 팀'이죠.
 1인 개발을 하는 많은 분들이 느끼실 겁니다. 프로젝트를 시작할 때의 '나'와 끝나갈 때쯤의 '나'는 전혀 다른 사람이라는 걸...
 
-![hulk-and-bruce](./hulk_and_bruce.jpeg)
+![hulk-and-bruce](/issue-based-version-control-101/hulk_and_bruce.jpeg)
 <p class="caption">이런 흉폭한 코드를 쓴 게... 나라니...</p>
 
 근데 농담이 아니라 **1인 팀은 항상 '미래의 나'를 멤버로 가정하고 작업해야 합니다.** 우리는 지금 작업한 내용을 반드시 까먹게 되어 있고,
@@ -101,7 +101,7 @@ tags: ["git"]
 제가 찾던 시스템이 이미 github 안에 있었더라구요! 바로 github의 이슈 트래커입니다. (다른 `git` 호스팅 서비스도 모두 가지고 있습니다)
 github 저장소를 돌아다니다 보면 `issues`라는 버튼을 한번쯤 보셨을 텐데요.
 
-![issue-button](./issue_button.jpg)
+![issue-button](/issue-based-version-control-101/issue_button.jpg)
 
 <br />
 
@@ -109,7 +109,7 @@ github 저장소를 돌아다니다 보면 `issues`라는 버튼을 한번쯤 �
 
 <br />
 
-![react-github](./react_github.jpg)
+![react-github](/issue-based-version-control-101/react_github.jpg)
 <p class="caption">리액트 공식 저장소에는 열려 있는 이슈만 267개, 전체 이슈는 13469개나 되는군요</p>
 
 <br />
@@ -121,7 +121,7 @@ github 저장소를 돌아다니다 보면 `issues`라는 버튼을 한번쯤 �
 
 <br />
 
-![react-issue-detail](./react_issue_detail.jpg)
+![react-issue-detail](/issue-based-version-control-101/react_issue_detail.jpg)
 <p class="caption">11911번째 이슈. 'ZhangYiJiang' 유저의 제보. <br />
 &lt;option&gt; 태그 안에 보간이 3개 들어 있고 그중 하나가 조건문이면 리액트 DOM이 터진다.</p>
 
@@ -132,7 +132,7 @@ github 저장소를 돌아다니다 보면 `issues`라는 버튼을 한번쯤 �
 
 <br />
 
-![react-issue-resolve](./react_issue_resolve.jpg)
+![react-issue-resolve](/issue-based-version-control-101/react_issue_resolve.jpg)
 <p class="caption">'Slowyn' 기여자가 버그를 해결한 코드를 올리고 'gaearon' 관리자가 이를 승인함.<br />
 <strong>(첫 번째 빨간색 상자)</strong></p>
 

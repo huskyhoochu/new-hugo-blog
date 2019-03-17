@@ -13,7 +13,7 @@ tags: ["frontend", "javascript"]
 
 정말 오랜만에 찾아왔네요. 여러분 모두 즐겁게 코딩하고 계신 거 맞죠?
 
-![jihyo](./jihyo.jpg)
+![jihyo](/what-is-this-exactly-in-javascript/jihyo.jpg)
 <p class="caption">저는 잘 지내요!</p>
 
 한바탕 외주의 홍역을 치른 뒤에... 한시름 놓게된 채로 저는 다시 공부를 시작했습니다. 이제는 집중해서 한 가지를 깊이 파헤쳐야 할 때인 것 같습니다. 배운 것을 차곡차곡 쌓아간다는 마음가짐으로 계속해보겠습니다.

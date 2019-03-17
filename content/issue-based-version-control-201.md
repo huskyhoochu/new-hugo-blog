@@ -84,7 +84,7 @@ rel="noopener noreferrer">https://github.com/huskyhoochu/gatsby-husky-blog</a>)
 
 먼저 제 블로그 저장소의 이슈 게시판에 들어가보겠습니다.
 
-![issue-dashboard](./open_issue.jpg)
+![issue-dashboard](/issue-based-version-control-201/open_issue.jpg)
 
 지금은 3개의 이슈가 열려 있네요. 모두 제가 '이게 필요하겠는걸' 싶을 때 추가해 놓은 것들이에요.
 할 일 관리 프로그램의 inbox처럼 생각하시면 됩니다.
@@ -92,7 +92,7 @@ rel="noopener noreferrer">https://github.com/huskyhoochu/gatsby-husky-blog</a>)
 이번에 저는 사이트에 copyright 문구를 추가하려고 해요. 먼저 이슈를 오픈하겠습니다.
 오른쪽에 있는 'New Issue' 버튼을 클릭해주세요.
 
-![write-issue](./write_issue.jpg)
+![write-issue](/issue-based-version-control-201/write_issue.jpg)
 
 그러면 다음과 같은 창이 뜨는데요. 제목 란에는 '페이지에 copyright 기입하기' 라고 작성했습니다.
 최소한으로 하려면 제목만 쓰고 submit 버튼을 누르시면 되는데요. 이슈를 좀 더 자세히 분류하려면 오른쪽의 네 가지 옵션을 조정하시면 됩니다.
@@ -110,7 +110,7 @@ rel="noopener noreferrer">https://github.com/huskyhoochu/gatsby-husky-blog</a>)
 
 저는 미리 만들어 둔 'Development' 라벨과 '할 일' 프로젝트를 지정했습니다. 그리고 submit을 누르면...
 
-![made-issue](./made_issue.jpg)
+![made-issue](/issue-based-version-control-201/made_issue.jpg)
 
 짠! 이슈가 열렸습니다. 새 이슈는 **23번**이군요. 이슈를 열자마자 밑에 두 가지 이벤트가 추가된 걸 볼 수 있는데요.
 제가 라벨과 프로젝트를 지정했던 게 타임라인에 남은 거라고 보시면 됩니다.
@@ -121,7 +121,7 @@ rel="noopener noreferrer">https://github.com/huskyhoochu/gatsby-husky-blog</a>)
 
 이제 github을 접고 터미널로 내려가보겠습니다. 바로 작업을 하는 건 아니고, copyright 이슈를 위한 작업 브랜치를 따로 쪼갤 겁니다.
 
-![checkout-branch](./checkout_branch.jpg)
+![checkout-branch](/issue-based-version-control-201/checkout_branch.jpg)
 
 저는 `master` 브랜치에서 분기한 `dev` 브랜치를 메인 브랜치로 쓰고 있습니다. (안전이 최고죠!)
 `dev` 브랜치에서 새 작업 브랜치를 만들어보죠.
@@ -152,11 +152,11 @@ git push --set-upstream origin 23-copyright
 
 작업 브랜치도 만들었으니 이제 진짜 작업을 해 보겠습니다. 제가 copyright 문구를 넣으려는 곳은 사이드바 하단입니다.
 
-![sidebar-before](./sidebar_before.jpg)
+![sidebar-before](/issue-based-version-control-201/sidebar_before.jpg)
 
 뚝딱뚝딱... 제가 코드를 어떻게 짰는지는 저장소를 구경하시면 쉽게 보실 수 있습니당...
 
-![sidebar-after](./sidebar_after.jpg)
+![sidebar-after](/issue-based-version-control-201/sidebar_after.jpg)
 
 금세 완성했네요.
 
@@ -185,11 +185,11 @@ target="_blank" rel="noopener noreferrer">Tabnabbing 공격과 rel=noopener 속�
 
 작업을 마쳤으니 커밋과 푸시를 할 차례입니다.
 
-![after-commit](./after_commit.jpg)
+![after-commit](/issue-based-version-control-201/after_commit.jpg)
 
 변경된 모든 파일을 `staging` 한 다음 커밋 명령을 내립니다. 그러면...
 
-![commit-msg](./commit_msg.jpg)
+![commit-msg](/issue-based-version-control-201/commit_msg.jpg)
 
 커밋 메시지 창이 나옵니다. 이때 `#이슈 번호` 형식으로 커밋 메시지에 입력을 하면 github이 이슈 번호를 읽어들이게 됩니다.
 
@@ -198,7 +198,7 @@ target="_blank" rel="noopener noreferrer">Tabnabbing 공격과 rel=noopener 속�
 어떻게 그게 가능하냐구요? <a href="https://www.huskyhoochu.com/npm-husky-the-git-hook-manager"
 target="_blank" rel="noopener noreferrer">husky로 손쉽게 git hook 관리하기</a> 를 읽어보시면 됩니다. 😙
 
-![after-push](./after_push.jpg)
+![after-push](/issue-based-version-control-201/after_push.jpg)
 
 이렇게 푸시까지 마쳤습니다.
 
@@ -217,28 +217,28 @@ target="_blank" rel="noopener noreferrer">지속적 통합이란 무엇입니까
 
 본론으로 돌아와서, 변경 사항을 푸시하면 두 가지 변화가 일어나는데요. 첫째로 Travis CI가 제 커밋을 테스트하기 시작합니다.
 
-![travis-ci](./travis_ci.jpg)
+![travis-ci](/issue-based-version-control-201/travis_ci.jpg)
 
 무엇을 테스트하느냐? 그건 제 저장소 최상단에 있는 `.travis.yml` 파일에 정의되어 있습니다.
 (더 이상의 Travis CI 관련 이야기는 글의 범위를 벗어나므로 줄이겠습니다)
 
-![travis-config](./travis_config.jpg)
+![travis-config](/issue-based-version-control-201/travis_config.jpg)
 
 둘째로 아까 저희가 오픈한 23번 이슈에 가 보면, 푸시한 커밋이 타임라인에 기록되어 있는 걸 볼 수 있습니다.
 커밋 메시지에 이슈 번호를 입력해두었기 때문에 github이 이 커밋을 레퍼런스로 걸어둔 것입니다.
 커밋 메시지에 입력한 이슈 번호를 github이 파란색 링크 버튼으로 만들어 준 거 보이시나요?
 
-![updated-issue](./updated_issue.jpg)
+![updated-issue](/issue-based-version-control-201/updated_issue.jpg)
 
 이렇게 **각 이슈 페이지마다 나의 작업 결과를 타임라인 형식으로 묶어내는 게 이슈 기반 버전 관리의 핵심**입니다.
 
 자, 그 사이에 Travis CI가 테스트를 완료했군요. 두 가지 운영체제, 두 가지 node 버전에서 모두 `build`를 성공했습니다.
 
-![passed-test](./passed_test.jpg)
+![passed-test](/issue-based-version-control-201/passed_test.jpg)
 
 테스트를 통해 저희의 커밋이 안전하다는 것이 증명되었으니, 이제 `23-copyright` 브랜치를 `dev` 브랜치에 병합(`merge`)하도록 하겠습니다.
 
-![merge-branch](./merge_branch.jpg)
+![merge-branch](/issue-based-version-control-201/merge_branch.jpg)
 
 이게 제가 브랜치를 병합하는 전체 과정인데요. 두 가지 생소한 명령어가 보이실 겁니다.
 
@@ -262,15 +262,15 @@ target="_blank" rel="noopener noreferrer">Git - Rebase 하기</a>)
 
 이제는 슬슬 copyright 이슈와 브랜치를 정리할 때가 된 것 같습니다. 이슈 페이지 가장 아래쪽에 있는 'Close issue' 버튼을 누르시면 끝입니다.
 
-![close-issue](./close_issue.jpg)
+![close-issue](/issue-based-version-control-201/close_issue.jpg)
 
 빨갛게 'Closed'라는 표시가 떠올랐죠.
 
-![issue-dashboard](./issue_dashboard.jpg)
+![issue-dashboard](/issue-based-version-control-201/issue_dashboard.jpg)
 
 이렇게 닫힌 이슈 목록에도 올라가고...
 
-![project-board](./project_board.jpg)
+![project-board](/issue-based-version-control-201/project_board.jpg)
 
 프로젝트의 칸반 보드에도 'Done' 항목으로 넘어갔네요.
 
@@ -279,17 +279,17 @@ target="_blank" rel="noopener noreferrer">Git - Rebase 하기</a>)
 
 이제 copyright 관련 모든 작업이 끝났으니, 23번 브랜치를 삭제하도록 하겠습니다.
 
-![delete-branch](./delete_branch.jpg)
+![delete-branch](/issue-based-version-control-201/delete_branch.jpg)
 
 원격 브랜치와 로컬 브랜치를 한번에 삭제했습니다.
 
-![log-graph](./log_graph.jpg)
+![log-graph](/issue-based-version-control-201/log_graph.jpg)
 
 로그 그래프도 일렬로 깔끔하게 이어지고 있습니다. (이 포스트를 쓰는 중에도 다른 작업을 해서 최신 커밋은 좀 더 앞서 있군요)
 
 **이제 진짜 끝!...?**
 
-![dormammu](./dormammu.jpg)
+![dormammu](/issue-based-version-control-201/dormammu.jpg)
 <p class="caption" style="text-decoration: line-through;">도르마무, 커밋을 가져왔다</p>
 
 <br />

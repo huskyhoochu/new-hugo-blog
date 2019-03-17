@@ -30,7 +30,7 @@ react는 스스로 어떻게 일하는지 잘 드러내지 않는 도구입니�
 
 react는 DOM 트리를 **level-by-level**로 탐색합니다. 너비 우선 탐색의 일종이라고 볼 수 있죠.
 
-![level-by-level](./level_by_level.png)
+![level-by-level](/virtual-dom/level_by_level.png)
 
 <p class="caption">기존 서브트리와 같은 위치의 서브트리를 비교합니다</p>
 

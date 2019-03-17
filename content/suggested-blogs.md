@@ -66,7 +66,7 @@ tags: ["diary"]
 같은 고민을 하시는 분들이 **아무런 진입 장벽 없이 편안하게 '개발의 맛'을 보실 수 있는 곳**입니다.
 핵심 컨텐츠는 HTML, CSS부터 시작하는 기초 웹 어플리케이션 개발 강좌들인데, 차츰차츰 Node.js 개발 쪽으로도 범위를 넓혀가고 있습니다.
 
-![egoing](./egoing.jpg)
+![egoing](/suggested-blogs/egoing.jpg)
 
 뭐니뭐니해도 생활코딩의 최고 매력 포인트는 **심야 라디오 DJ 같은 꿀보이스에 너무나 친절한 마음씨로 우리를 가르쳐주시는 이고잉 강사님**이시죠. (ㅜㅠ)
 강의 중간중간 "지금은 다 이해하지 못하셔도 괜찮습니다~" 라든지 "여러분은 도전을 시작하신 것만으로 성공하신 겁니다!" 등등 힐링 대사를 마구 날려주셔서
@@ -84,12 +84,12 @@ tags: ["diary"]
 생활코딩이 웹 개발에 초점을 맞추고 있다면 프로그래머스는 프로그래밍 언어 강의가 주를 이루고 있어서 자신의 관심사를 파악하기 좋을 것 같습니다.
 최근엔 리액트 네이티브나 블록체인 같은 최신 기술 강의들도 많이 올라오고 있습니다.
 
-![programmers](./programmers.jpg)
+![programmers](/suggested-blogs/programmers.jpg)
 
 프로그래머스는 **알고리즘 테스트를 체계적으로 운영하는 곳**으로도 유명합니다. 언어별, 레벨별로 테스트를 볼 수도 있고 **카카오 코딩 테스트 기출 문제**도 확인할 수 있답니다!
 (저를 비롯해) 개발자 취업을 준비하시는 분들께 알고리즘 공부는 필수죠! 수시로 참고하시면 좋을 것 같습니다.
 
-![kakao-test](./kakao_test.jpg)
+![kakao-test](/suggested-blogs/kakao_test.jpg)
 <p class="caption" style="text-decoration: line-through;">카카오 프렌즈와 함께하는 지옥의 정렬 알고리즘</p>
 
 <br />
@@ -105,7 +105,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 그만큼 저 페이지를 읽어보는 게 너무 중요하다는 생각이 들었습니다. 개발자로 커리어 전환을 결심하시고 매일 공부한 내용을 꾸준히 기록하셨더라구요.
 개발자를 꿈꾸시는 분들 모두에게 큰 귀감이 된다는 생각이 들었습니다. 저도 기운이 없을 때마다 가끔씩 들어오면서 "열심히 해야지..." 하고 각오를 다잡게 되는 곳이랍니다.
 
-![monkey-blog](./monkey.jpg)
+![monkey-blog](/suggested-blogs/monkey.jpg)
 <p class="caption">사실상 팔만대장경에 버금가는 TIL...</p>
 
 <br />
@@ -129,7 +129,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 개발 관련 포스팅을 다양한 루트에서 큐레이팅해서 올려주시는 곳입니다. 페이스북, 트위터, 유튜브, 블로거 등등 엄청나게 다양한 플랫폼을 동시에 운영하고 있어서
 자주 쓰시는 플랫폼 쪽으로 구독하시면 유용하실 겁니다. 위에 링크한 루트 말고도 공식 사이트에 들어가 보시면 더 많은 플랫폼을 둘러보실 수 있어요.
 
-![gaerae](./gaerae.jpg)
+![gaerae](/suggested-blogs/gaerae.jpg)
 <p class="caption">블로그 메인 화면</p>
 
 <br />
@@ -150,7 +150,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 
 **"자바스크립트는 어떻게 작동하는가"** 시리즈가 있습니다. 자바스크립트의 핵심 작동 원리를 명쾌하게 설명한 포스팅입니다.
 
-![baek-medium](./baek_medium.jpg)
+![baek-medium](/suggested-blogs/baek_medium.jpg)
 
 <br />
 
@@ -164,7 +164,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 자바스크립트, ES6, 웹팩, 리액트, NoSQL 등등 프론트엔드 개발에 필요한 거의 모든 내용을 총망라하고 있습니다.
 저도 리액트를 공부하면서 문지방이 닳도록 들렀던 곳인데요. 최근에는 책도 출간하시고 알고리즘 포스트도 많이 올리고 계십니다.
 
-![zero-cho](./zerocho.jpg)
+![zero-cho](/suggested-blogs/zerocho.jpg)
 
 <br />
 
@@ -176,7 +176,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 
 파이썬에 관한 깊이 있는 글들을 번역해두신 블로그입니다. 파이썬뿐만 아니라 https, node 를 다루는 글도 많이 올라와 있습니다.
 
-![tech-ssut](./tech_ssut.jpg)
+![tech-ssut](/suggested-blogs/tech_ssut.jpg)
 
 <br />
 
@@ -188,7 +188,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 
 파이썬 웹 프레임워크 장고에 대한 모든 것을 종합하고 있는 곳입니다. 자체 컨텐츠도 알차지만 외부 링크로 걸어둔 참고용 블로그도 눈여겨볼 곳이 많습니다.
 
-![django-pincoin](./django_pincoin.jpg)
+![django-pincoin](/suggested-blogs/django_pincoin.jpg)
 <p class="caption">사이트 중 한 페이지 예시</p>
 
 <br />
@@ -203,7 +203,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 
 덧붙여 **본격 macOS에 개발 환경 구축하기**도 맥으로 개발하시는 분이라면 놓쳐서는 안 될 포스팅이죠.
 
-![subicura-docker](./subicura.jpg)
+![subicura-docker](/suggested-blogs/subicura.jpg)
 
 <br />
 
@@ -223,7 +223,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 웹과 모바일, 리디북스 페이퍼 머신을 위한 UI/UX 디자인을 어떻게 개선하고 있는지도 꾸준히 기록하고 있었구요.
 두 가지 목표를 함께 추구하는 모습에서 **'기술력만을 위한 기술력이 아니라 유저에게 무엇을 제공할 것인가를 진지하게 고민하고 있구나'** 라는 인상을 받았습니다.
 
-![ridibooks](./ridibooks.jpg)
+![ridibooks](/suggested-blogs/ridibooks.jpg)
 <p class="caption">디자인 개발 사례와 서버 개발 사례가 큰 축으로 전개되는 리디북스 블로그</p>
 
 <br />
@@ -236,7 +236,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 어느덧 국내 스타트업의 상징이 되어버린 배민! 그래서인지 우아한 형제들 블로그는 요리보고 조리봐도 대단해 보일 뿐인데요.
 저는 자바 쪽이 아니어서 지원하기는 어렵겠지만, 우아한 테크 캠프 포스팅이라든지 개발진들의 실패담, 성공담을 나누는 글들에서 많은 영감을 얻는 편이라 자주 보곤 합니다.
 
-![wooahan](./wooahan.jpg)
+![wooahan](/suggested-blogs/wooahan.jpg)
 <p class="caption">앗, 아아... 저는 잘하고 있는 걸까요...</p>
 
 <br />
@@ -256,7 +256,7 @@ https://wayhome25.github.io/til/2017/08/14/TIL-for-6-months/</a>
 
 뿐만 아니라 일본 시장을 위한 다국어 스크립트도 직접 제작하는 등 스포카 개발자분들의 능력은 정말이지 최고인 듯 싶습니다.
 
-![spoqa](./spoqa.jpg)
+![spoqa](/suggested-blogs/spoqa.jpg)
 <p class="caption">오픈 소스 프로젝트 개발을 적극 장려하는 듯한 스포카</p>
 
 <br />

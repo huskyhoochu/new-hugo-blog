@@ -9,7 +9,7 @@ images: ["/favicon_package/android-chrome-512x512.png"]
 tags: ["book"]
 ---
 
-![author](./author.jpg)
+![author](/my-korean-modern-history/author.jpg)
 
 #### 작가의 '출신 성분'은 의미 있는 정보를 담고 있다
 

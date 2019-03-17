@@ -17,7 +17,7 @@ tags: ["frontend", "git"]
 
 물론 `husky`를 쓰지 않더라도 `git hook`을 설정할 수 있는 공식적인 방법은 따로 있습니다. `.git/hooks` 폴더에 들어가서 스크립트를 작성하면 되는 건데요.
 
-![git-hooks-directory](./git_hooks_directory.png)
+![git-hooks-directory](/npm-husky-the-git-hook-manager/git_hooks_directory.png)
 
 폴더 안으로 들어가 보면, `git` 개발진이 마련해 둔 공식 스크립트 샘플이 담겨있는 걸 볼 수 있습니다. 저기서 `.sample` 확장자를 걷어내고 커스터마이징을 하면 `hook`을 쓸 수 있습니다.
 
@@ -70,11 +70,11 @@ $ yarn add --dev husky@next
 이렇게 `husky`랑 내가 작성한 스크립트를 동시에 쓰고 싶다면 어떻게 해야 될까요? `husky`는 `husky`대로 두고, 스크립트는 `.git/hooks` 폴더에 넣으면 될까요?
 하지만 `husky`를 설치한 뒤에 `.git/hooks` 폴더를 보면 그러기 힘들다는 걸 알 수 있습니다.
 
-![git-hooks-directory-after-husky](./git_hooks_directory_after_husky.png)
+![git-hooks-directory-after-husky](/npm-husky-the-git-hook-manager/git_hooks_directory_after_husky.png)
 
 `husky`가 이미 스크립트를 자동으로 추가해 놓았기 때문인데요. 파일을 열어보면 모든 `hook`이 `husky`를 실행하도록 설정되어 있다는 걸 알 수 있습니다.
 
-![husky-script](./husky_script.png)
+![husky-script](/npm-husky-the-git-hook-manager/husky_script.png)
 <p class="caption">husky를 설치하면 자동으로 모든 hook에 husky를 실행하라는 스크립트가 작성됩니다.</p>
 
 그럼 `husky`를 쓰면 스크립트 파일로 `git hook`을 쓸 수는 없는 건가요? 그건 아닙니다.
@@ -187,23 +187,23 @@ chmod +x ./your-script.sh
 
 설명만으로는 성에 안 차신다고요? 그러면 제가 어떻게 `git hook` 관리를 하는지 스샷으로 보여드리겠습니다.
 
-![my-npm-scripts](./my_npm_scripts.png)
+![my-npm-scripts](/npm-husky-the-git-hook-manager/my_npm_scripts.png)
 <p class="caption">이 블로그의 package.json</p>
 
 앞서 말씀드린 대로 저는 `npm scripts`와 커스텀 스크립트를 동시에 사용하고 있습니다.
 이미지 파일을 커밋하면 `pre-commit` 단계애서 `image_optimization.sh` 스크립트가 작동하고...
 
-![add-image](./add_image.png)
+![add-image](/npm-husky-the-git-hook-manager/add_image.png)
 <p class="caption">이미지를 커밋할 경우: image_optimization.sh 스크립트 작동</p>
 
 js 파일을 커밋하면 `lint-staged`가 작동하죠.
 
-![add-js](./add_js.jpg)
+![add-js](/npm-husky-the-git-hook-manager/add_js.jpg)
 <p class="caption">js나 jsx 파일을 커밋할 경우: lint-staged 작동</p>
 
 그리고 커밋이 완료되면, `prepare-commit-msg` 훅이 작동하면서 브랜치 이름**(지금은 '8-husky'죠)**에서 이슈 번호를 가져와 커밋 메시지에 입혀줍니다.
 
-![commit-msg](./commit_msg.png)
+![commit-msg](/npm-husky-the-git-hook-manager/commit_msg.png)
 
 #### 마치며: 왜 커밋에 이슈 번호를 달아야 하죠?
 

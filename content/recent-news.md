@@ -15,7 +15,7 @@ tags: ["diary"]
 
 #### 한국어음중개?
 
-![about-kross](./about_kross.jpg)
+![about-kross](/recent-news/about_kross.jpg)
 
 <p class="caption">한국어음중개 비즈니스 흐름도</p>
 

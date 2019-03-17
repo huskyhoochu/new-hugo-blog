@@ -26,7 +26,7 @@ tags: ["book"]
 <br/>이 책은 근본적으로 다른 두 가지 개발 방식을 소개한다. 두 가지 방식이란 상업용 소프트웨어의 '성당' 모델과 리눅스 세계의 '시장' 모델이다. 저자는 이 책에서 시장 모델을 적용한 오픈소스 프로젝트인 페치메일을 ...
 </p></div></div>
 
-![eric-raymond](./eric_raymond.jpg)
+![eric-raymond](/the-cathedral-and-the-bazaar/eric_raymond.jpg)
 <p class="caption"><strong>"여러분의 영산靈山 백두산을 향해 정중한 예를 올립니다."</strong>
 <br />- 저자 에릭 레이먼드의 한국어판 머리말 중</p>
 
@@ -54,7 +54,7 @@ target="_blank" rel="noopener noreferrer">리처드 스톨먼</a>이죠.
 (참고: <a href="https://www.gnu.org/philosophy/free-sw.ko.html"
 target="_blank" rel="noopener noreferrer">자유 소프트웨어란 무엇인가? - GNU 프로젝트 - 자유 소프트웨어 재단 (FSF)</a>)
 
-![richard-stallman](./richard_stallman.jpeg)
+![richard-stallman](/the-cathedral-and-the-bazaar/richard_stallman.jpeg)
 <p class="caption">리처드 스톨먼&nbsp;<span style="text-decoration: line-through;">(슈퍼 히피)</span></p>
 
 그리고 비슷한 시기에 등장한
@@ -69,7 +69,7 @@ target="_blank" rel="noopener noreferrer">리눅스</a>가 엄청난 성공을 �
 오늘 추천드리려는 ⟪성당과 시장⟫이라는 책은 에릭 레이먼드가 쓴 오픈소스 관련 저작들을 모아서 출간된 것입니다. 그 정신을 기리기 위해서인지 무료로 판매되고 있는데요.
 **컴퓨터 산업의 역사와 패러다임을 빠르게 이해하고 싶으신 분**은 일독을 추천드립니다.
 
-![book-cover](./book_cover.jpg)
+![book-cover](/the-cathedral-and-the-bazaar/book_cover.jpg)
 <p class="caption">
 <a href="http://www.yes24.com/24/Goods/17942908" target="_blank" rel="noopener noreferrer">yes24</a>,
 <a href="https://ridibooks.com/v2/Detail?id=443000262&_s=search&_q=%EC%84%B1%EB%8B%B9%EA%B3%BC%20%EC%8B%9C%EC%9E%A5" target="_blank" rel="noopener noreferrer">리디북스</a>,
@@ -120,7 +120,7 @@ target="_blank" rel="noopener noreferrer">리눅스</a>가 엄청난 성공을 �
 기여자의 숫자가 많아질수록 버그를 볼 줄 아는 사람은 통계적으로 반드시 나타나게 되어 있고, 마찬가지로 버그를 해결할 줄 아는 사람도 반드시 나타나게 되어 있기 때문이죠.
 관리자가 피드백을 적절하게 받아들여 수정판을 빠르게 배포하기만 한다면 버그는 반드시 해결됩니다.
 
-![linus-torvalds](./linus_torvalds.jpg)
+![linus-torvalds](/the-cathedral-and-the-bazaar/linus_torvalds.jpg)
 <p class="caption"><strong>"보는 눈이 충분하게 많으면, 찾지 못할 버그는 없다"</strong>
 <br />
 <span style="text-decoration: line-through;">"Fxxk you Nvidia"</span>

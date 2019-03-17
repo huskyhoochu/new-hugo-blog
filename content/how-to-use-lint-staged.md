@@ -26,7 +26,7 @@ tags: ["frontend"]
 그러면 쓸데없는 행이나 스페이스 담긴 코드가 저장소에 올라가겠죠. 나중에 영수가 작업한 파일을 철수가 작업하게 되면 철수는 순수한 변경 사항 외에 `lint`가 잡아내는 에러까지 추가로 커밋해야 합니다.
 히스토리의 품질은 떨어지고 철수의 스트레스는 치솟겠죠. *(아는 강사님 중 한 분은 리팩토링 안하고 커밋하는 동료 때문에 진지하게 말싸움도 했다고...)*
 
-![eslint-meme](./eslint_meme.jpg)
+![eslint-meme](/how-to-use-lint-staged/eslint_meme.jpg)
 
 #### git과 lint를 하나로! lint-staged
 
@@ -42,7 +42,7 @@ tags: ["frontend"]
 이처럼 `git`에서 어떤 이벤트가 생겼을 때, 우리가 원하는 스크립트를 끼워넣도록 이벤트 사이에 갈고리(hook)를 걸어주는 것이 바로 `git hook`입니다.
 훅은 여러 종류가 있지만, 오늘 살펴볼 건 **커밋 워크플로우 훅**이에요.
 
-![git-hooks-mario-world](./git_hooks_world.jpg)
+![git-hooks-mario-world](/how-to-use-lint-staged/git_hooks_world.jpg)
 <p class="caption">커밋 워크플로우 훅을 사용하면 커밋을 할 때마다 반복적으로 해야 하는 일들을 손쉽게 자동화할 수 있습니다.</p>
 
 #### commit workflow hook
