@@ -1,8 +1,8 @@
 ---
 title: "AWS를 만드는 AWS, CloudFormation"
 description: "코드를 작성해서 AWS 인프라를 구축하자! CloudFormation 기본 사용법 소개"
-date: 2019-03-19T11:21:51+09:00
-draft: true
+date: 2019-03-19T19:31:51+09:00
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
@@ -11,7 +11,7 @@ tags: ["AWS"]
 
 #### CloudFormation 소개 영상: AWS Summit Seoul 2017
 
-<!-- {{<youtube DpkB38n7Yv4>}} -->
+{{<youtube DpkB38n7Yv4>}}
 
 #### Infrastructre as Code?
 
@@ -108,9 +108,9 @@ EC2 인스턴스가 생성되기 시작하는 걸 확인할 수 있습니다. EC
 
 #### 발전시키자: 다른 리소스 연결하기
 
-EC2만으로는 서비스를 만들 수 없겠죠. 이번 포스트에서는 EC2 프로비저닝 및 로드밸런서 연결까지 시도해보겠습니다. 처음에 등록했던 템플릿을 다음과 같이 수정합니다.
+EC2만으로는 서비스를 만들 수 없겠죠. 이번 포스트에서는 EC2 프로비저닝 및 보안그룹 연결까지 시도해보겠습니다. 처음에 등록했던 템플릿을 다음과 같이 수정합니다.
 
-{{<highlight yaml "linenostart=1, linenos=inline, hl_lines=2-4 14-22">}}
+{{<highlight yaml "linenostart=1, linenos=inline, hl_lines=2-4 14-42">}}
 ---
 Parameters:
   KeyPair:
@@ -126,14 +126,31 @@ Resources:
       InstanceType: "t2.micro"
       KeyName: !Ref KeyPair
       UserData:
-        "Fn::Base64":
-            !Sub |
-              #!/bin/bash -xe
-              apt-get update -y && apt-get dist-upgrade -y
-              apt-get install nginx -y
-              systemctl start nginx
-              systemctl enable nginx
-
+        Fn::Base64: |
+          #!/bin/bash
+          apt-get update -y
+          apt-get install nginx -y
+          apt-get dist-upgrade -y
+      SecurityGroupIds:
+        - !Ref SecurityGroup
+  SecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupName: "MyInstanceSecurityGroup"
+      GroupDescirption: "Security Group for MyInstance"
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 443
+        ToPort: 443
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
 {{</highlight>}}
 
 두 가지 큰 변화가 보입니다. `Resources` 항목 외에 `Parameters` 항목이 추가되었고, 인스턴스 프로퍼티에도 `KeyName`과 `UserData` 항목이 추가되었습니다. 낯선 문법들도 눈에 띄는군요.
@@ -154,29 +171,79 @@ KeyName: !Ref KeyPair
 
 {{<highlight yaml  "linenostart=15, linenos=inline">}}
 UserData:
-  "Fn::Base64": # 입력값을 base64 인코딩으로 변환
-    !Sub | # 멀티 라인 문자열을 한 줄 문자열로 변환
-      #!/bin/bash -xe
-      apt-get update -y && apt-get dist-upgrade -y
-      apt-get install nginx -y
-      systemctl start nginx
-      systemctl enable nginx                   
+  Fn::Base64: | # 입력값을 base64 인코딩으로 변환
+    #!/bin/bash # 멀티 라인 문자열을 한 줄 문자열로 변환
+    apt-get update -y
+    apt-get install nginx -y
+    apt-get dist-upgrade -y 
 {{</highlight>}}
 
 템플릿 내장 함수를 소개하는 공식 문서가 따로 있으니 확인해보시면 좋겠습니다.
 <a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html" target="_blank" rel="noopener noreferrer">내장 함수 참조 - AWS CloudFormation</a>
 
+마지막으로 보안그룹이 있습니다. 외부에서 EC2에 접속하기 위해선 포트를 열어주어야겠죠.
 
+{{<highlight yaml "linenostart=23, linenos=inline">}}
+    SecurityGroupIds:
+            - !Ref SecurityGroup # SecurityGroup 리소스 참조
+SecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupName: "MyInstanceSecurityGroup"
+      GroupDescirption: "Security Group for MyInstance"
+      SecurityGroupIngress: # 인바운드 규칙
+      - IpProtocol: tcp # HTTP
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp # HTTPS, apt-get 통신을 위해 필요
+        FromPort: 443
+        ToPort: 443
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp # SSH 연결
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
+{{</highlight>}}
 
+SecurityGroup 리소스를 EC2의 SecurityGroupIds에 참조로 걸어주면, 스택이 업데이트될 때 보안 그룹을 만들면서 기존 인스턴스에 연결까지 자동으로 해주게 됩니다.
 
+이제 업데이트를 시작해보죠. 참고로 키 페어는 CloudFormation을 통해 만들 수 없고, 기존처럼 수동으로 만들어야 합니다. 유저가 `.pem` 파일을 받아야 하는 보안 이슈 때문입니다.
 
+![update-button](/introduce-cloudformation/update-button.png)
+
+우측 상단의 '스택 업데이트'를 누르면 처음 스택을 생성할 때와 마찬가지로 템플릿 업로드 화면이 나타납니다. 여기서 새로 만든 템플릿을 업로드해줍시다.
+
+![parameters-complete](/introduce-cloudformation/parameters-complete.png)
+
+미리 만든 키 페어를 파라미터에 등록하고 다음으로 넘어갑니다.
+
+![preview-update](/introduce-cloudformation/preview-update.png)
+
+업데이트 검토 단계의 '변경 세트 미리 보기' 영역에서는 새 템플릿을 스택에 적용했을 시 어떤 변화가 일어나는지를 확인할 수 있습니다. 보안그룹이 추가되며 인스턴스가 수정된다고 나와 있네요. 이때 '대체' 항목이 `true`라고 나와 있는 걸 볼 수 있는데요. EC2 인스턴스는 처음 생성될 때 키 페어를 사용할지 안 할지 결정되면 되돌릴 수 없습니다. 그래서 키 페어를 추가하자 기존 리소스를 파괴하고 다시 생성한다고 예고하는 것이죠. 어떤 프로퍼티를 변경했을 때 리소스가 파괴되는지, 혹은 그대로 유지되는지, 잠시 작동을 멈췄다가 재실행되는지는 공식 문서에 하나하나 소개되어 있습니다.
+
+![event-update](/introduce-cloudformation/event-update.png)
+
+업데이트가 끝났습니다. 이제 EC2 대시보드로 이동해보면 새 인스턴스가 만들어져 있고, 보안 그룹도 생성되어 있는 걸 확인할 수 있습니다.
+
+![security-group](/introduce-cloudformation/security-group.png)
+
+템플릿에 작성한 그대로 만들어졌네요. 이제 EC2 인스턴스의 퍼블릭 DNS에 접속해 보면...
+
+Nginx 초기 화면이 출력되네요.
+
+![nginx](/introduce-cloudformation/nginx.png)
+
+#### 마치며: 이제 시작일 뿐
+
+지금까지 아주아주 간단하게 CloudFormation 사용법을 알아봤습니다. 모든 쓰임새를 다 알려드리자니 내용이 방대해서 그러지 못했는데요. 심지어 CloudFormation만 익힌다고 끝이 아닙니다. 업계에는 수많은 프로비저닝 툴이 나와 있거든요. 서버 인스턴스의 내부 환경을 구성하는 데 쓰이는 <a href="https://www.ansible.com/" target="_blank" rel="noopener noreferrer">Ansible</a>은 방금 공부한 `UserData` 영역을 더 편리하고 강력하게 구성할 수 있는 서비스입니다. <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">Terraform</a>은 AWS뿐만 아니라 Azure, GCP 등 멀티 클라우드 환경의 IaC 구성을 돕는 툴입니다. 서버리스 서비스 구성에 특화된 <a href="https://serverless.com/" target="_blank" rel="noopener noreferrer">Serverless Framework</a>도 있습니다. 처음엔 부담스럽게 여겨질지 모르지만 하나하나 익혀가다 보면 언젠가 "아니 이거 없이 그동안 어떻게 살았지?" 소리가 나올 만큼 큰 도움이 되실 거라 믿습니다.
 
 
 #### 참고자료
   
 <a href="https://www.hpe.com/kr/ko/what-is/infrastructure-as-code.html" target="_blank" rel="noopener noreferrer">Infrastructure as Code란? – HPE 용어 정의 | HPE 대한민국</a>
 
-<a href="https://aws.amazon.com/ko/cloudformation/" target="_blank" rel="noopener noreferrer">AWS CloudFormation – 코드형 인프라 및 AWS 리소스 프로비저닝</a>
+<a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/Welcome.html" target="_blank" rel="noopener noreferrer">AWS CloudFormation이란 무엇입니까? - AWS CloudFormation</a> (공식 문서)
 
-
+<a href="https://www.udemy.com/share/1002Dc/" target="_blank" rel="noopener noreferrer">AWS CloudFormation Master Class | Udemy</a> **(유료 강좌이지만 강추)**
   
