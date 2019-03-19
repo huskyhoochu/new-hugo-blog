@@ -27,7 +27,7 @@ tags: ["AWS"]
 
 **IT 인프라를 클릭 몇 번으로 만들 수 있다는 건 혁명이었습니다. 하지만 클릭을 수십, 수백 번 반복하게 된 시점부터는 새로운 전환이 필요해졌습니다.** 'Infrastructure as Code' 개념은 이런 수요를 안고 등장했습니다.
 
-아이디어는 간단합니다. 요리 레시피를 종이 한 장에 정리하듯이, 내가 필요한 모든 리소스를 템플릿으로 작성해 실행하자는 것입니다. 이를 돕는 여러 프로비저닝 툴이 업계에는 많이 나와 있죠. 그 중에서 CloudFormation은 AWS가 만든, AWS 리소스를 템플릿으로 생성할 수 있도록 돕는 서비스입니다.
+아이디어는 간단합니다. 요리 레시피를 종이 한 장에 정리하듯이, 내가 필요한 모든 리소스를 템플릿으로 작성해 실행하자는 것입니다. 이를 돕는 여러 프로비저닝 툴이 업계에는 많이 나와 있죠. CloudFormation은 AWS 리소스를 템플릿으로 생성하도록 돕는 서비스입니다.
 
 
 #### 집어치우고, 코드나 보여줘
@@ -101,6 +101,76 @@ CloudFormation 첫 화면에서 '스택 생성'이라는 화면을 눌러주세�
 EC2 인스턴스가 생성되기 시작하는 걸 확인할 수 있습니다. EC2 대시보드에 가면 생성 중인 인스턴스의 모습을 볼 수 있습니다.
 
 ![pending-ec2](/introduce-cloudformation/pending-ec2.png)
+
+생성이 모두 끝나면 `CREATE_COMPLETE` 라는 상태를 반환하게 됩니다.
+
+![stack-complete](/introduce-cloudformation/stack-complete.png)
+
+#### 발전시키자: 다른 리소스 연결하기
+
+EC2만으로는 서비스를 만들 수 없겠죠. 이번 포스트에서는 EC2 프로비저닝 및 로드밸런서 연결까지 시도해보겠습니다. 처음에 등록했던 템플릿을 다음과 같이 수정합니다.
+
+{{<highlight yaml "linenostart=1, linenos=inline, hl_lines=2-4 14-22">}}
+---
+Parameters:
+  KeyPair:
+    Type: "AWS::EC2::KeyPair::KeyName"
+Resources:
+  MyInstance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      AvailabilityZone: "ap-northeast-2a"
+      # Ubuntu 16.04 서울 리전 머신 이미지
+      # https://cloud-images.ubuntu.com/locator/ec2/
+      ImageId: "ami-79815217"
+      InstanceType: "t2.micro"
+      KeyName: !Ref KeyPair
+      UserData:
+        "Fn::Base64":
+            !Sub |
+              #!/bin/bash -xe
+              apt-get update -y && apt-get dist-upgrade -y
+              apt-get install nginx -y
+              systemctl start nginx
+              systemctl enable nginx
+
+{{</highlight>}}
+
+두 가지 큰 변화가 보입니다. `Resources` 항목 외에 `Parameters` 항목이 추가되었고, 인스턴스 프로퍼티에도 `KeyName`과 `UserData` 항목이 추가되었습니다. 낯선 문법들도 눈에 띄는군요.
+
+`Parameters` 항목은 템플릿 안의 설정값을 유저가 콘솔 환경에서 선택할 수 있게 해줍니다. `KeyPair` 라는 아이템의 타입을 `"AWS::EC2::KeyPair::KeyName"` 으로 잡게 되면, 유저는 본인 계정 내에 있는 키 페어 중 하나를 골라 쓸 수 있게 됩니다.
+
+![parameters](/introduce-cloudformation/parameters.png)
+<p class="caption">...이렇게요.</p>
+
+여기서 고른 값은 `!Ref` 라는 함수 문법을 사용해 가져다 쓸 수 있습니다. 
+
+{{<highlight yaml  "linenostart=13, linenos=inline">}}
+# KeyName의 값을 Parameters KeyPair 항목의 레퍼런스로 사용한다
+KeyName: !Ref KeyPair
+{{</highlight>}}
+
+`UserData` 항목은 EC2 내부의 초기 설정을 해주는 명령어 공간입니다. 여기에는 쉘 스크립트 명령문을 Base64 인코딩으로 전달하는 함수(`Fn::Base64`)가 쓰입니다. `Fn::Sub`는 변수를 조합하여 문자열을 반환하는 함수이며, `|` 은 `yaml` 포맷의 문법인데 멀티 라인 문자열을 입력할 때 사용합니다. 
+
+{{<highlight yaml  "linenostart=15, linenos=inline">}}
+UserData:
+  "Fn::Base64": # 입력값을 base64 인코딩으로 변환
+    !Sub | # 멀티 라인 문자열을 한 줄 문자열로 변환
+      #!/bin/bash -xe
+      apt-get update -y && apt-get dist-upgrade -y
+      apt-get install nginx -y
+      systemctl start nginx
+      systemctl enable nginx                   
+{{</highlight>}}
+
+템플릿 내장 함수를 소개하는 공식 문서가 따로 있으니 확인해보시면 좋겠습니다.
+<a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html" target="_blank" rel="noopener noreferrer">내장 함수 참조 - AWS CloudFormation</a>
+
+
+
+
+
+
 
 #### 참고자료
   
