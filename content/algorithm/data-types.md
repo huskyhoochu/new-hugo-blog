@@ -2,7 +2,7 @@
 title: "Day 0: Data Types"
 description: "10 Days of JavaScript"
 date: 2019-03-21T16:24:27+09:00
-draft: true
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
