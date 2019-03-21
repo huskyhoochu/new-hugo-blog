@@ -1,6 +1,6 @@
 {{ define "main" }}
 <ul class="list-reset" role="main">
-  {{ range .Paginator.Pages }}
+  {{ range where .Paginator.Pages "Section" "!=" "algorithm" }}
     <li>
         <div class="
           flex items-center justify-between
