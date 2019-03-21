@@ -9,9 +9,9 @@ images: ["/favicon_package/android-chrome-512x512.png"]
 tags: ["tutorials"]
 ---
 
-**링크:** <a href="https://www.hackerrank.com/challenges/js10-hello-world/problem" target="_blank" rel="noopener noreferrer">Day 0: Hello, World! | HackerRank</a>
-
 #### Day 0. Hello, World!
+
+**링크:** <a href="https://www.hackerrank.com/challenges/js10-hello-world/problem" target="_blank" rel="noopener noreferrer">Day 0: Hello, World! | HackerRank</a>
 
 ###### Objective
 
