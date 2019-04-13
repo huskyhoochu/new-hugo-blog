@@ -6,7 +6,7 @@ draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
-tags: ["tutorials"]
+tags: ["hackerrank"]
 ---
 
 #### Day 0: Data Types
