@@ -9,4 +9,7 @@ images: ["/favicon_package/android-chrome-512x512.png"]
 tags: [""]
 ---
 
-알고리즘 사이트로 유명한 <a href="https://www.hackerrank.com" target="_blank" rel="noopener noreferrer">HackerRank</a> 문제 풀이를 정리하는 공간.
+알고리즘 공부 정리 공간.
+
+* <a href="https://www.hackerrank.com" target="_blank" rel="noopener noreferrer">HackerRank</a>
+* <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer">LeetCode</a>
