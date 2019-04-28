@@ -44,3 +44,6 @@ IntersectionObserver를 매우 심도 있게 분석한 번역 글이 있어서 �
 
 (참고: <a href="https://tech.lezhin.com/2017/07/13/intersectionobserver-overview" target="_blank" rel="noopener noreferrer">레진 기술 블로그 - IntersectionObserver를 이용한 이미지 동적 로딩 기능 개선</a>)
 
+intersection이라는 단어를 직역하면 '교차, 교차점'이란 뜻이 나오는데요. IntersectionObserver는 말 그대로 특정 DOM 객체가 우리가 보는 화면 영역(viewport)과 겹치는 교차 이벤트를 감시합니다. 사이트 하단에 있는 이미지를 로딩한다고 칩시다. 이때 이미지를 처음부터 불러오는 게 아니라 사용자가 스크롤을 해서 이미지 엘리먼트가 화면에 등장하는 순간 로딩을 시작한다면 어떨까요? 사이트 초기화 당시에 모든 이미지를 전부 불러올 필요가 없으니 성능을 개선하기에 매우 유용합니다.
+
+ <iframe src="https://codesandbox.io/embed/oj0136n8r6?fontsize=14" title="intersection" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
