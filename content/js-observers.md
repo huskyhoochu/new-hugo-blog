@@ -1,8 +1,8 @@
 ---
 title: "JS: The Observers"
 description: "의존성 패키지 없이도 가뿐하게! 자바스크립트 기본 내장 옵저버를 소개합니다"
-date: 2019-04-22T21:50:32+09:00
-draft: true
+date: 2019-04-30T00:04:32+09:00
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
@@ -57,3 +57,11 @@ ResizeObserver는 말 그대로 DOM 객체의 크기 변화를 감시하는 옵�
 기기 너비가 일정 픽셀 이하로 줄어들었을 때 콜백 함수를 활용하거나 섬세한 애니메이션을 필요로 할 때 유용하게 쓸 수 있습니다.
 
 문제는, 아직 ResizeObserver가 최신 크롬 환경에서만 작동한다는 겁니다. 그래서 폴리필을 다운받아 사용하시는 걸 추천드립니다.
+
+#### MutationObserver
+
+아마 나머지 모든 옵저버 가운데 가장 활용도가 높은 녀석이 아닐까 싶습니다. 이 옵저버는 IE11까지도 지원하는 뛰어난 호환성을 자랑하기도 하고, DOM 객체의 '속성'이라는 꽤나 범용적인 영역을 감시해줍니다.
+
+<iframe src="https://codesandbox.io/embed/lpv42q12rm?fontsize=14" title="mutation" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+박스의 내부 문구에 옵저버를 붙였습니다. 박스 문구는 rgb 값을 담고 있는데, 클릭할수록 값이 증가합니다. 박스를 클릭해 rgb값이 바뀌면 옵저버가 박스의 배경색을 새 rgb값에 맞춰 업데이트합니다.
