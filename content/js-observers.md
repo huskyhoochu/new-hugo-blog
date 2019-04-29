@@ -46,4 +46,14 @@ IntersectionObserver를 매우 심도 있게 분석한 번역 글이 있어서 �
 
 intersection이라는 단어를 직역하면 '교차, 교차점'이란 뜻이 나오는데요. IntersectionObserver는 말 그대로 특정 DOM 객체가 우리가 보는 화면 영역(viewport)과 겹치는 교차 이벤트를 감시합니다. 사이트 하단에 있는 이미지를 로딩한다고 칩시다. 이때 이미지를 처음부터 불러오는 게 아니라 사용자가 스크롤을 해서 이미지 엘리먼트가 화면에 등장하는 순간 로딩을 시작한다면 어떨까요? 사이트 초기화 당시에 모든 이미지를 전부 불러올 필요가 없으니 성능을 개선하기에 매우 유용합니다.
 
- <iframe src="https://codesandbox.io/embed/oj0136n8r6?fontsize=14" title="intersection" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<iframe src="https://codesandbox.io/embed/5kvyzj653l?fontsize=14" title="intersection" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+#### ResizeObserver
+
+ResizeObserver는 말 그대로 DOM 객체의 크기 변화를 감시하는 옵저버입니다. 
+
+<iframe src="https://codesandbox.io/embed/j2vn2232qv?fontsize=14" title="resizeObserver" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+기기 너비가 일정 픽셀 이하로 줄어들었을 때 콜백 함수를 활용하거나 섬세한 애니메이션을 필요로 할 때 유용하게 쓸 수 있습니다.
+
+문제는, 아직 ResizeObserver가 최신 크롬 환경에서만 작동한다는 겁니다. 그래서 폴리필을 다운받아 사용하시는 걸 추천드립니다.
