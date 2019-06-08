@@ -10,8 +10,6 @@ module.exports = {
       path: ["assets/css"],
     }), 
     require('tailwindcss')('./assets/js/tailwind.js'),    
-    require('autoprefixer')({      
-      browsers: ['>1%']
-    }),    
+    require('autoprefixer'),
   ]
 }
