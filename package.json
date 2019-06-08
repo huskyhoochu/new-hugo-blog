@@ -12,11 +12,18 @@
     "deploy": "./deploy.sh"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^1.1.0",
-    "autoprefixer": "^9.4.7",
-    "postcss": "^7.0.14",
-    "postcss-cli": "^6.1.1",
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "autoprefixer": "^9.6.0",
+    "browserslist": "^4.6.2",
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.2",
     "postcss-import": "^12.0.1",
     "tailwindcss": "^0.7.4"
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }
