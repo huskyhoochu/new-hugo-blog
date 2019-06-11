@@ -5,7 +5,7 @@
     </a>
     <div>
       {{ with .Site.GetPage "section" "algorithm" }}
-      <a href="{{.URL}}">
+      <a href="{{.Permalink}}">
         <h3 class="text-sm text-white">{{ .Title }}</h3>
       </a>
       {{ end }}
