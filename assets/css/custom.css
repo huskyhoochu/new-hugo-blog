@@ -101,6 +101,12 @@ blockquote {
   opacity: 1;
 }
 
+.page-link {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .page-item:hover .page-link {
   color: white;
   opacity: 1;
