@@ -1,7 +1,7 @@
 ---
 title: "[코어 자바스크립트] 실행 컨텍스트"
 description: "자바스크립트의 핵심 원리인 실행 컨텍스트를 알아봅시다"
-date: 2019-12-03T08:54:54+09:00
+date: 2019-12-12T21:24:34+09:00
 draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
