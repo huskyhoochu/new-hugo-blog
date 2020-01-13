@@ -137,6 +137,54 @@ factorsOf(6); // [1, 2, 3, 6];
 폴드: 함수 연산으로 목록 첫째 요소아 누산기 초기값 결합
 
 
+#### 숫자 금액을 한글 이름으로 변환하기
+
+
+{{<highlight typescript "linenostart=1, linenos=inline">}}
+// 명령형 프로그래밍
+function numToKorean(num: number): string {
+  // 한글로 바꿀 숫자 배열
+  const textSymbol = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+  // 4자리마다 반복되는 자릿수 배열
+  const powerSymbol = ['', '십', '백', '천'];
+  // 4자리마다 커지는 단위수 배열
+  const dotSymbol = ['', '만', '억', '조', '경'];
+
+  // 숫자로 들어온 값을 문자열 배열로 변환
+  const strNum = num.toString().split('');
+
+  const result = [];
+  for (let i = 0; i < strNum.length; i++) {
+    // 순회하면서 숫자를 한글로 변환해 삽입
+    result.push(textSymbol[parseInt(strNum[i], 10)]);
+
+    // 숫자가 0이 아닐 때 자릿수 추가
+    if (strNum[i] !== '0') {
+      result.push(powerSymbol[(strNum.length - i - 1) % 4]);
+    }
+
+    // 4자리가 반복될 때마다 단위수 추가
+    if ((strNum.length - i - 1) % 4 === 0) {
+      result.push(dotSymbol[Math.ceil((strNum.length - i - 1) / 4)]);
+    }
+  }
+
+  // 완성된 배열을 하나의 문자열로 조인
+  return result.join('');
+}
+
+export default numToKorean;
+
+
+numToKorean(12345); // 일만이천삼백사십오
+numToKorean(22020000) // 이천이백이만
+numToKorean(7830000) // 칠백팔심삼만
+numToKorean(3451274700) // 삼십사억오천일백이십칠만사천칠백
+numToKorean(13710000) // 일천삼백칠십일만
+{{</highlight>}}
+
+
+
 #### 클로저, 커링, 부분 적용 (금)
 
 클로저: 묵시적 바인딩을 지닌 환경. 지연 실행의 좋은 예
