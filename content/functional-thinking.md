@@ -37,75 +37,95 @@ tags: ["javascript book"]
 
 이 책에서 말하고자 하는 가장 핵심적인 문장이다. 함수형 사고는 특정한 문법이나 툴을 활용해서 코드를 예쁘게 만드는 것이 아니라, 주어진 문제를 해결하는 관점을 '함수'의 방식으로 생각해보자는 것에 가깝다.
 
-명령형 프로그래밍과 함수형 프로그래밍의 차이를 살펴보는 간단한 예제를 만들어보겠다. 유명 테크 기업명과 매출액이 객체로 묶여 있는 일련의 배열을 전달받았을 때, 매출액이 100 이상인 기업은 기업명을 대문자로 처리해야 한다고 가정해 보자.
+명령형 프로그래밍과 함수형 프로그래밍의 차이를 살펴보는 간단한 예제를 만들어보겠다. 은행 시스템에서 자주 쓰이는, 숫자 표기 금액을 한글 표기로 변환하는 코드다.
 
-{{<highlight javascript "linenostart=1, linenos=inline">}}
-/* 명령형 프로그래밍
-* 1. 배열을 순회하며 기업의 매출액을 100과 비교한다.
-* 2. 100보다 큰 기업을 발견하면 기업명을 대문자로 처리한다.
-* 3. 처리된 값을 리턴할 배열에 저장한다.
-*/
+{{<highlight typescript "linenostart=1, linenos=inline">}}
+// 명령형 프로그래밍
+function numToKorean(num: number): string {
+  // 한글로 바꿀 숫자 배열
+  const textSymbol = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+  // 4자리마다 반복되는 자릿수 배열
+  const powerSymbol = ['', '십', '백', '천'];
+  // 4자리마다 커지는 단위수 배열
+  const dotSymbol = ['', '만', '억', '조', '경'];
 
-// 무난하게 FAANG을 나열해보았다
-// 개인적 감정이라든지 실제 매출액이 반영됐다든지 한 건 아니다
-const companies = [
-  {name: 'facebook', income: 75},
-  {name: 'apple', income: 130},
-  {name: 'amazon', income: 99},
-  {name: 'netflix', income: 124},
-  {name: 'google', income: 112},
-];
+  // 숫자로 들어온 값을 문자열로 변환
+  const strNum = String(num);
 
-const changeCompanyName = (arr) => {
-  const result = [];
-  for (let i = 0; i < arr.length; i++) {
-    // 매출액 비교
-    if (arr[i].income > 100) {
-      // 매출액이 100보다 클 경우, 해당 객체를 복사
-      const capitalized = Object.assign({}, arr[i]);
-      // 복사된 객체의 기업명을 대문자 처리
-      capitalized.name.toUpperCase();
-      // 결과 배열에 추가
-      result.push(capitalized);
-    } else {
-      // 100보다 크지 않을 경우, 기존 값을 그대로 추가
-      result.push(arr[i]);
+  let result = '';
+  for (let i = 0; i < strNum.length; i++) {
+    // 순회하면서 숫자를 한글로 변환해 삽입
+    result += textSymbol[parseInt(strNum[i], 10)];
+
+    // 숫자가 0이 아닐 때 자릿수 추가
+    if (parseInt(strNum[i], 10) !== 0) {
+      result += powerSymbol[(strNum.length - i - 1) % 4];
+    }
+
+    // 4자리가 반복될 때마다 단위수 추가
+    if ((strNum.length - i - 1) % 4 === 0) {
+      result += dotSymbol[Math.ceil((strNum.length - i - 1) / 4)];
     }
   }
 
   return result;
 }
+
+numToKorean(12345); // 일만이천삼백사십오
+numToKorean(22020000) // 이천이백이만
+numToKorean(7830000) // 칠백팔심삼만
+numToKorean(3451274700) // 삼십사억오천일백이십칠만사천칠백
+numToKorean(13710000) // 일천삼백칠십일만
 {{</highlight>}}
 
-명령형 프로그래밍은 개발자가 직접 저수준의 매커니즘을 사용해 데이터를 변경해야 하고, 임시 상태를 보관할 장소도 마련해야만 한다. 방금 전의 코드에서도 까다로웠던 부분은, 원본 객체를 손상시키지 않고 대문자 처리된 결과값을 전달하기 위해 객체 복사를 수행한 13번째 줄이었다. 이런 식의 코드 설계는 빠른 개발을 해야 할 때 편리하지만 잠재적으로 위험할 수 있는데, 코드가 길고 장황해져서 가독성을 해칠 확률도 높은 데다가 코드 흐름에 접근해서 일부를 변경하기 쉽다 보니 얼마든지 코드가 깨질 수도 있다. 
+명령형 프로그래밍은 개발자가 직접 저수준의 매커니즘을 사용해 데이터를 변경해야 하고, 임시 상태를 보관할 장소도 마련해야만 한다. 이런 식의 코드 설계는 빠른 개발을 해야 할 때 편리하지만 잠재적으로 위험할 수 있는데, 코드가 길고 장황해져서 가독성을 해칠 확률도 높은 데다가 코드 흐름에 접근해서 일부를 변경하기 쉽다 보니 얼마든지 코드가 깨질 수도 있다. 
 
-{{<highlight javascript "linenostart=1, linenos=inline">}}
-/* 함수형 프로그래밍
-* 1. 맵 함수를 이용해 주어진 배열을 순회한다.
-* 2. 변경을 수행할 콜백 함수에 매출액 비교 조건식을 넣어 전달한다.
-*/
+{{<highlight typescript "linenostart=1, linenos=inline">}}
+// 함수형 프로그래밍
+function numToKorean(num: number): string {
+  // 한글로 바꿀 숫자 배열
+  const textSymbol = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+  // 4자리마다 반복되는 자릿수 배열
+  const powerSymbol = ['', '십', '백', '천'];
+  // 4자리마다 커지는 단위수 배열
+  const dotSymbol = ['', '만', '억', '조', '경'];
 
-const changeCompanyName = (arr) => {
-  // 맵 함수에서 데이터 처리를 지시할 콜백 함수
-  const compareIncome = (item) => {
-    // 매출액이 100 이상이면 이름을 대문자로 변경 후 리턴
-    if (item.income > 100) {
-      item.name.toUpperCase();
-      return item;
-    }
-    // 그렇지 않으면 파라미터 그대로 리턴
-    return item;
-  }
+  return num
+    .toString() // 문자열 변환
+    .split('') // 배열 분할
+    .map(x => parseInt(x, 10)) // 배열 내 요소 숫자 변환
+    .map((y, i, arr) => { // 자바스크립트 맵은 요소, 인덱스, 배열 자체를 파라미터로 갖는다
+    // 숫자를 한글로 변환
+    const text = textSymbol[y];
 
-  // 맵 함수에 원본 배열과 콜백 함수 제공하여 새로운 배열을 리턴
-  return Array.prototype.map.call(arr, compareIncome);
+    // 숫자가 0이 아닐 때 자릿수 추가
+    const power = y === 0 
+      ? ''
+      : powerSymbol[(arr.length - i - 1) % 4];
+  
+    // 4자리가 반복될 때마다 단위수 추가
+    const dot = (arr.length - i - 1) % 4 === 0 
+      ? dotSymbol[Math.ceil((arr.length - i - 1) / 4)] 
+      : '';
+  
+    // 세가지 문자를 하나로 합쳐 리턴
+    return `${text}${power}${dot}`;
+  }).join(''); // 배열을 문자열로 합침
 }
+
+
+numToKorean(12345); // 일만이천삼백사십오
+numToKorean(22020000) // 이천이백이만
+numToKorean(7830000) // 칠백팔심삼만
+numToKorean(3451274700) // 삼십사억오천일백이십칠만사천칠백
+numToKorean(13710000) // 일천삼백칠십일만
+
 {{</highlight>}}
 
 명령형 코드와 비교했을 때 함수형 프로그래밍은 이런 점에서 도움이 된다. 먼저 데이터와 로직을 분리해서 관리할 수 있게 해 준다. 명령형 프로그래밍에선 루프 내부에 실제 데이터와 코드 로직이 뒤섞여 있어 '상태'를 직접 관리해야 하는 개발자에게 코드 개선의 부담을 안겨준다. 하지만 함수형 프로그래밍의 경우, 미리 정의된 고계함수(함수를 인자로 받는 함수) 혹은 언어가 제공하는 메서드 뒤편으로 '상태'의 운용을 위임하고, 개발자는 콜백함수를 통해 제공된 파라미터를 가공하면서 로직을 설계하게 된다. 이렇게 되면 공통으로 자주 쓰이는 주요 함수에 맞게 문제 해결 방식을 맞추어나가게 되고, 안전하면서도 여러 사람이 빠르게 이해할 수 있는 코드를 작성할 수 있게 된다.
 
 
-#### 필터, 맵, 리듀스
+#### 필터, 맵, 폴드(리듀스)
 
 고계함수 중에는 삼대장이라 불릴 만큼 대표적인 함수가 세 가지 있다. 필터, 맵, 리듀스인데 하나씩 살펴보기로 하자.
 
@@ -134,55 +154,13 @@ factorsOf(6); // [1, 2, 3, 6];
 {{</highlight>}}
 
 
-폴드: 함수 연산으로 목록 첫째 요소아 누산기 초기값 결합
+###### 3. 폴드 
 
+폴드는 함수 연산으로 목록의 첫째 요소와 누산기 초기값을 결합하는 작업이다. 리듀스라고 부르기도 한다.
 
-#### 숫자 금액을 한글 이름으로 변환하기
+{{<highlight javascript "linenostart=1, linenos=inline">}}
 
-
-{{<highlight typescript "linenostart=1, linenos=inline">}}
-// 명령형 프로그래밍
-function numToKorean(num: number): string {
-  // 한글로 바꿀 숫자 배열
-  const textSymbol = ['', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
-  // 4자리마다 반복되는 자릿수 배열
-  const powerSymbol = ['', '십', '백', '천'];
-  // 4자리마다 커지는 단위수 배열
-  const dotSymbol = ['', '만', '억', '조', '경'];
-
-  // 숫자로 들어온 값을 문자열 배열로 변환
-  const strNum = num.toString().split('');
-
-  const result = [];
-  for (let i = 0; i < strNum.length; i++) {
-    // 순회하면서 숫자를 한글로 변환해 삽입
-    result.push(textSymbol[parseInt(strNum[i], 10)]);
-
-    // 숫자가 0이 아닐 때 자릿수 추가
-    if (strNum[i] !== '0') {
-      result.push(powerSymbol[(strNum.length - i - 1) % 4]);
-    }
-
-    // 4자리가 반복될 때마다 단위수 추가
-    if ((strNum.length - i - 1) % 4 === 0) {
-      result.push(dotSymbol[Math.ceil((strNum.length - i - 1) / 4)]);
-    }
-  }
-
-  // 완성된 배열을 하나의 문자열로 조인
-  return result.join('');
-}
-
-export default numToKorean;
-
-
-numToKorean(12345); // 일만이천삼백사십오
-numToKorean(22020000) // 이천이백이만
-numToKorean(7830000) // 칠백팔심삼만
-numToKorean(3451274700) // 삼십사억오천일백이십칠만사천칠백
-numToKorean(13710000) // 일천삼백칠십일만
 {{</highlight>}}
-
 
 
 #### 클로저, 커링, 부분 적용 (금)
