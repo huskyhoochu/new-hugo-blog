@@ -72,10 +72,10 @@ function numToKorean(num: number): string {
 }
 
 numToKorean(12345); // 일만이천삼백사십오
-numToKorean(22020000) // 이천이백이만
-numToKorean(7830000) // 칠백팔심삼만
-numToKorean(3451274700) // 삼십사억오천일백이십칠만사천칠백
-numToKorean(13710000) // 일천삼백칠십일만
+numToKorean(22020000); // 이천이백이만
+numToKorean(7830000); // 칠백팔심삼만
+numToKorean(3451274700); // 삼십사억오천일백이십칠만사천칠백
+numToKorean(13710000); // 일천삼백칠십일만
 {{</highlight>}}
 
 명령형 프로그래밍은 개발자가 직접 저수준의 매커니즘을 사용해 데이터를 변경해야 하고, 임시 상태를 보관할 장소도 마련해야만 한다. 이런 식의 코드 설계는 빠른 개발을 해야 할 때 편리하지만 잠재적으로 위험할 수 있는데, 코드가 길고 장황해져서 가독성을 해칠 확률도 높은 데다가 코드 흐름에 접근해서 일부를 변경하기 쉽다 보니 얼마든지 코드가 깨질 수도 있다. 
@@ -115,10 +115,10 @@ function numToKorean(num: number): string {
 
 
 numToKorean(12345); // 일만이천삼백사십오
-numToKorean(22020000) // 이천이백이만
-numToKorean(7830000) // 칠백팔심삼만
-numToKorean(3451274700) // 삼십사억오천일백이십칠만사천칠백
-numToKorean(13710000) // 일천삼백칠십일만
+numToKorean(22020000); // 이천이백이만
+numToKorean(7830000); // 칠백팔심삼만
+numToKorean(3451274700); // 삼십사억오천일백이십칠만사천칠백
+numToKorean(13710000); // 일천삼백칠십일만
 
 {{</highlight>}}
 
@@ -134,11 +134,10 @@ numToKorean(13710000) // 일천삼백칠십일만
 필터는 주어진 목록을 사용자가 정한 조건에 따라 더 작은 목록으로 만드는 작업이다. 예를 들어 주어진 숫자의 약수를 배열로 리턴하는 함수를 만든다고 하자.
 
 {{<highlight javascript "linenostart=1, linenos=inline">}}
-function factorsOf(number) {
-  return Array.from(new Array(number).keys()) // 0에서 number - 1 까지 연속되는 배열 생성
+const factorsOf = (number) => 
+  Array.from(new Array(number).keys()) // 0에서 number - 1 까지 연속되는 배열 생성
     .map(x => x + 1) // 각 요소에 1씩 더하여 1 - number까지 연속되는 배열로 변경
     .filter(x => number % x === 0); // number로 나누어 나머지가 0인 숫자 필터
-}
 
 factorsOf(6); // [1, 2, 3, 6];
 {{</highlight>}}
@@ -150,7 +149,11 @@ factorsOf(6); // [1, 2, 3, 6];
 필터가 조건에 맞는 요소만 골라내 더 작은 목록을 만드는 일이라면, 맵은 요소에 변화를 적용한 새로운 목록을 만드는 작업이다.
 
 {{<highlight javascript "linenostart=1, linenos=inline">}}
+const greeting = (users) =>
+  users.map(user => `Hello, ${user}!`)
 
+gretting(['John', 'Mary', 'Tom', 'Susan']);
+// ['Hello, John!', 'Hello, Mary!', 'Hello, Tom!', 'Hello, Susan!'];
 {{</highlight>}}
 
 
@@ -159,7 +162,20 @@ factorsOf(6); // [1, 2, 3, 6];
 폴드는 함수 연산으로 목록의 첫째 요소와 누산기 초기값을 결합하는 작업이다. 리듀스라고 부르기도 한다.
 
 {{<highlight javascript "linenostart=1, linenos=inline">}}
+const addAll = (nums) =>
+  nums.reduce((acc, cur) => acc + cur);
 
+addAll([1, 2, 3, 4]); // 10
+/*
+*        +   => 10
+*       / \
+*      +   4
+*     / \ 
+*    +   3
+*   / \
+*  1   2
+*  // 초기값을 따로 지정하는 경우도 있고, 처음 더하는 값을 초기값으로 지정하는 경우도 있다.
+*/
 {{</highlight>}}
 
 
