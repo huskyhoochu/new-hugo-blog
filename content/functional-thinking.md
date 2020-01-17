@@ -1,8 +1,8 @@
 ---
-title: "함수형 사고와 Ramda.js로 기업 데이터 처리하기"
+title: "함수형 사고와 Ramda.js로 기업 데이터 처리하기 (1)"
 description: "데이터를 함수의 연결로 처리하는 함수형 프로그래밍 관점을 공부하고 실무에 적용한 사례를 적었습니다."
-date: 2020-01-07T10:21:55+09:00
-draft: true
+date: 2020-01-17T09:11:55+09:00
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
@@ -181,34 +181,15 @@ addAll([1, 2, 3, 4]); // 10
 
 위의 세 가지 고계함수들은 거의 모든 프로그래밍 언어에서 발견할 수 있다. 공통적으로 구현되어 있는 표준적인 함수를 이용해 문제를 해결하다 보면, 개발자는 자신이 해결해야 할 문제를 정량적으로 생각할 수 있게 되고 다른 개발자들과 쉽게 공유할 수 있는 형태로 문제를 재정의하게 된다.
 
-#### 클로저, 커링, 부분 적용 (금)
+#### 쉬어가기
 
-클로저: 묵시적 바인딩을 지닌 환경. 지연 실행의 좋은 예
-
-커링: 다인수 함수를 일인수 함수 체인으로 바꾸는 것
-
-부분 적용: 주어진 다인수 함수 일부분의 인자만 전달하여 나머지 인자를 받아야 하는 함수로 리턴하는 것
-
-#### Ramda.js로 적용하기 (토)
-
-훨씬 다양한 고계함수들이 내장되어 있다.
-
-가장 많이 쓰는 거
-
-compose
-
-propsOr
-
-project
-
-
-#### 기업재무데이터 더미에서 바늘 같은 데이터 끄집어내기 (일)
-
-수치화된 데이터가 매우많다. 친절하게 영어로 되어 있지 않음. 키는 전부 코드, 그리고 숫자뿐.
-
-project를 이용하면 3개년치 리스트 중에 필요한 값만 간편하게 끄집어낼 수 있음.
+정리하다 보니 포스트가 길어져서 진도가 안 나가기 시작했다. 일단 이번 포스트는 개괄하는 정도에서 끝내고, 다음 파트에서는 커링, 부분함수 등의 개념을 익힌 뒤 방대한 기업 데이터에서 빠르게 원하는 데이터를 끄집어내는 방법을 소개하고자 한다.
 
 
 #### 참고
 
 <a href="https://evan-moon.github.io/2019/12/15/about-functional-thinking/" target="_blank" rel="noopener noreferrer">기존의 사고 방식을 깨부수는 함수형 사고 - Evan's Tech Blog</a>
+
+<a href="https://velog.io/@kyusung/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9A%94%EC%95%BD" target="_blank" rel="noopener noreferrer">함수형 프로그래밍 요약 - velog</a>
+
+<a href="https://github.com/FEDevelopers/tech.description/wiki/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EA%B0%80-%EB%90%98%EA%B3%A0-%EC%8B%B6%EB%8B%A4%EA%B3%A0%3F-(Part-1)" target="_blank" rel="noopener noreferrer">함수형 프로그래머가 되고 싶다고? (Part 1) · FEDevelopers/tech.description Wiki</a>
