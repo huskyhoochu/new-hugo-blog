@@ -141,17 +141,17 @@ const partialResult = partial1(7, 3); // 부분 적용
 {{</highlight>}}
 
 
-#### Ramda.js로 적용하기 (토)
+#### Ramda.js로 적용하기
 
-훨씬 다양한 고계함수들이 내장되어 있다.
+위에 나열한 기초 개념을 모두 받아들여서 직접 고계함수를 작성해 운영해도 좋은 경험이 될 것이다. 하지만 미리 만들어진 고성능 라이브러리를 사용하는 것도 좋다. 오늘 소개할 <a href="https://ramdajs.com/docs/" target="_blank" rel="noopener noreferrer">Ramda.js</a>는 순수 자바스크립트만으로 구현된 함수형 프로그래밍 라이브러리이다. 제공되는 모든 함수가 커링과 부분 적용을 지원한다.
 
-가장 많이 쓰는 거
+자주 사용되는 함수 일부분만 소개하도록 하겠다. 
 
-compose
+###### PropOr
 
-propsOr
+###### cond
 
-project
+###### Project
 
 
 #### 기업재무데이터 더미에서 바늘 같은 데이터 끄집어내기 (일)
@@ -159,3 +159,8 @@ project
 수치화된 데이터가 매우많다. 친절하게 영어로 되어 있지 않음. 키는 전부 코드, 그리고 숫자뿐.
 
 project를 이용하면 3개년치 리스트 중에 필요한 값만 간편하게 끄집어낼 수 있음.
+
+
+#### 참고
+
+<a href="https://www.youtube.com/watch?v=e-5obm1G_FY" target="_blank" rel="noopener noreferrer">JavaScript로 함수형 프로그래밍 배우기 - Anjana Vakil - JSUnconf</a>
