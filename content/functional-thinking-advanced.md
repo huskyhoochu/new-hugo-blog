@@ -149,6 +149,27 @@ const partialResult = partial1(7, 3); // 부분 적용
 
 ###### PropOr
 
+고객 정보가 담긴 객체가 있고, 거기서 특정 정보를 꺼내 사용한다고 가정해보자.
+
+{{<highlight javascript "linenostart=1, linenos=inline">}}
+import * as R from 'ramda';
+
+const profile = {
+  name: '홍길동',
+  amount: 100000,
+};
+
+const profileName = R.propOr('이름 없음', 'name');
+const profileBank = R.propOr('은행 없음', 'bank');
+
+profileName(profile); // '홍길동'
+profileBank(profile); // '은행 없음'
+{{</highlight>}}
+
+`propOr` 함수는 매개변수로 주어지는 객체에서 지정한 프로퍼티에 해당하는 값을 리턴한다. 만일 원하는 프로퍼티를 찾는데 실패하면 미리 지정해 둔 기본값을 출력한다. 이것은 사이드 이펙트를 관리하기 위한 함수형 프로그래밍의 주요 전략이다. 로직을 기획할 때 데이터의 불완전성에 대비해 유효성 체크를 일일이 설정하는 것이 아니라 입력값의 형태에 따라 출력을 담당하는 함수를 변경하는 것이다. 여기에 '카테고리'와 '펑터(Functor)' 개념이 등장하는데 다음의 블로그에 훌륭한 설명이 담겨 있다.
+
+(참고: [어떻게 하면 안전하게 함수를 합성할 수 있을까? - Evan's Tech Blog](https://evan-moon.github.io/2020/01/27/safety-function-composition/))
+
 ###### cond
 
 ###### Project
