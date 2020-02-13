@@ -211,32 +211,73 @@ getCreditMessage(companyC.grade)
 실제 재무데이터 구조를 모두 밝힐 수는 없지만, 규모가 매우 방대하며 데이터의 key-value가 가독성 있는 문자로 설정되어 있지도 않다. 예를 들면 '영업 이익'이라는 항목이라고 해서 'profit' 이라는 키를 갖는 게 아니라 'A003020310' 같은, 키마저 코드화된 채로 담겨 있는 모습을 볼 수 있다. 거기다 재무 데이터는 최신 년도 값만 추출하지 않고 3년 내지 5년 간의 변화를 모두 쿼리한 뒤 그래프로 표현하는 경우가 많다. 먼저 자료 구조부터 체크해보도록 하자.
 
 {{<highlight javascript "linenostart=1, linenos=inline">}}
-const data = [
+const companyFinancialData = [
   {
     date: '2018',
     A12435322: 2400000,
     B49334893: 13440000,
     C34294929: 5500000,
+    // ...
+    // 이런 식의 코드화된 데이터가 한 객체에 300개 이상 달려 있다고 가정하자
   },
   {
     date: '2017',
     A12435322: 1200000,
     B49334893: 10040000,
     C34294929: 3300000,
+    // ...
   },
   {
     date: '2016',
     A12435322: 900000,
     B49334893: 9040000,
     C34294929: 1300000,
+    // ...
   },
 ]
 {{</highlight>}}
 
+어떤 기업의 3개년 치 재무 데이터가 객체를 요소로 하는 배열 형태로 제공된다고 하자. 여기서 '귀속년도', '영업 이익' 만을 추출해서 새로운 배열을 만들고, 최신 년도가 맨 뒤로 가도록 정렬한다고 가정하자. 어떻게 하면 좋을까?
 
-수치화된 데이터가 매우많다. 친절하게 영어로 되어 있지 않음. 키는 전부 코드, 그리고 숫자뿐.
 
-project를 이용하면 3개년치 리스트 중에 필요한 값만 간편하게 끄집어낼 수 있음.
+먼저 순수 자바스크립트 함수들만을 이용해 데이터를 추출해보자.
+
+{{<highlight javascript "linenostart=1, linenos=inline">}}
+const result = companyFinancialData
+  .map(item => ({
+    date: item.date,
+    B49334893: item.B49334893, // 'B49334893'를 영업이익 항목이라 가정하자
+  }))
+  .sort((a, b) => parseInt(a.date, 10) - parseInt(b.date, 10))
+
+console.log(result);
+
+/*
+* [
+*  { date: '2016', B49334893: 9040000 },
+*  { date: '2017', B49334893: 10040000 },
+*  { date: '2018', B49334893: 13440000 }
+* ]
+*/
+{{</highlight>}}
+
+순수 자바스크립트 함수만을 이용해 체인을 구성할 땐 주의해야 할 점이 있다. 함수가 원본 배열을 변형시키는지, 아니면 새로운 배열을 복사하는지를 확인해야만 한다. `map` 함수는 리턴 값으로 새로운 배열을 복사하지만 `sort` 함수는 원본 배열을 변형시킨다. 지금 같은 경우, `map` 함수를 우선 배치하면서 체인을 시작했으므로 우리가 원하는 결과값 배열은 `result` 변수 안에 새로운 배열로 담기고, 기존 `companyFinancialData` 와는 무관해진다. 그러면 `sort` 함수가 원본 배열을 변형시킨다 해도 `result` 배열이 변형되는 것이기에 `companyFinancialData`의 무결성은 지켜진다.
+
+만일 `map` 함수와 `sort` 함수의 순서를 바꿔서 체인을 구성한다면 어떻게 될까? `sort` 함수의 결과값이 `result`에 담기기는 해서 최종적인 결과값은 동일하게 출력되겠지만 `companyFinancialData` 또한 정렬되었을 것이다. 원본 배열이 각 요소마다 몇백 개가 넘는 항목이 달린 상태라고 가정한다면 원본 배열이 손상되는 문제와 더불어 메모리에도 악영향을 끼치게 되었을 것이다. `map`을 먼저 써서 사용자가 원하는 요소만 추출한 뒤, 작아진 배열을 정렬하는 것이 훨씬 효율적인 설계다.
+
+Ramda.js를 사용하면 `project`라는 함수를 쓸 수 있다.
+
+{{<highlight javascript "linenostart=1, linenos=inline">}}
+import * as R from 'ramda';
+
+const getData = R.project([
+  'date',
+  'B49334893',
+], companyFinancialData);
+
+const result = R.sort((a, b) => parseInt(a.date, 10) - parseInt(b.date, 10), getData);
+{{</highlight>}}
+
 
 
 #### 참고
