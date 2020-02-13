@@ -1,8 +1,8 @@
 ---
 title: "함수형 사고와 Ramda.js로 기업 데이터 처리하기 (2)"
 description: "클로저, 커링 등 함수형 사고에서 필요한 개념을 익히고 데이터 처리 과정을 살펴보겠습니다"
-date: 2020-02-11T09:30:44+09:00
-draft: true
+date: 2020-02-13T20:22:44+09:00
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
@@ -278,6 +278,33 @@ const getData = R.project([
 const result = R.sort((a, b) => parseInt(a.date, 10) - parseInt(b.date, 10), getData);
 {{</highlight>}}
 
+`project` 함수는 사용자가 추출하기 원하는 객체 키를 문자열 형태로 배열에 넣어 파라미터로 제공하면 거기에 맞춘 배열을 리턴해준다. 이 함수의 장점은, 만일 원본 데이터가 무결하지 않아 사용자가 찾으려는 데이터 일부가 누락되어 있어도 오류를 반환하지 않고 데이터가 누락된 결과물을 그대로 리턴해준다는 것이다. 체이닝이 이루어지는 중에는 에러가 발생하지 않으므로 사용자는 체이닝이 다 끝난 결과물에 대해서만 핸들링을 해 주면 된다. Ramda.js가 제공하는 `sort` 함수는 당연하게도 원본 배열을 손상시키지 않고 정렬을 돕는다.
+
+Ramda.js의 장점은 모든 함수가 커링과 부분 적용을 자유자재로 제공한다는 것이다. 그것이 가능케 하기 위해 모든 함수는 데이터를 받는 파라미터 위치가 가장 마지막에 놓여 있다. 이러면 로직을 설계하기 위한 함수만 미리 작성해 함수를 변수화 시켜놓고 나중에 데이터를 제공해 지연 실행을 가능케 할 수 있으며, 하나의 함수를 여러 데이터에 재사용하기도 쉽다.
+
+{{<highlight javascript "linenostart=1, linenos=inline">}}
+import * as R from 'ramda';
+
+const getProfitData = R.project([
+  'date',
+  'B49334893',
+]);
+
+const sortByYear = R.sort((a, b) => parseInt(a.date, 10) - parseInt(b.date, 10));
+
+const result = R.pipe(
+  getProfitData,
+  sortByYear,
+)(companyFinancialData);
+{{</highlight>}}
+
+`pipe` 함수는 제공된 데이터를 매개변수로 받을 헬퍼 함수의 체인을 만들어주는 함수다. '데이터 추출' -> '연도에 따른 정렬' 이라는 비즈니스 로직을 커링 함수로 각각 구현한 뒤 `pipe` 함수에 순서대로 넣고, 마지막으로 원본 데이터를 제공하기만 하면 원하는 결과값을 얻을 수 있다. 얼마든지 많은 함수를 넣어도 상관이 없고, 각 함수의 역할 또한 가독성 있게 읽어들이는 것이 가능하다. 이러한 체이닝 방식은 로직이 거듭될수록 더 깊은 depth로 빠져버리는 잘못된 설계를 방지해주고 로직의 유지보수와 확장을 편리하게 만들어준다.
+
+#### 계속해서 새로운 배열을 복사하는 방법, 괜찮을까?
+
+함수형 프로그래밍은 함수 실행이 빚을지 모를 부수효과를 방지하기 위해 원본 데이터를 무결하게 유지하기를 꾀한다. 이를 위해선 데이터를 가공할 때마다 데이터를 새롭게 복사해야만 한다. 하지만 데이터가 크고 로직이 길어질수록 복사 방법은 메모리의 부하를 가져올 것이다. 이 부담을 최소화할 순 없을까? 여기서 나온 개념이 '영속 데이터 구조(Persistent data structures)'이다. 여기에서 전부 설명할 내용은 아니지만, 간단히 요약하자면 원본 데이터를 일종의 해시 트리 구조로 보유한 뒤, 데이터의 가공이 일어날 때마다 가공이 일어난 leaf만을 새로 가공된 데이터로 교체하고 나머지 트리는 그대로 유지하는 방법을 말한다. 자바스크립트에서 이를 구현한 패키지가 바로 [immutable.js](https://immutable-js.github.io/immutable-js/)이다. 페이스북이 개발한 바로 그것... immutable.js가 어떻게 영속 데이터 구조를 구현했고 얼마나 퍼포먼스 향상이 있는지는 이 포스트를 참고하면 좋다.
+
+참고: [Immutable.js, persistent data structures and structural sharing](https://medium.com/@dtinth/immutable-js-persistent-data-structures-and-structural-sharing-6d163fbd73d2)
 
 
 #### 참고
