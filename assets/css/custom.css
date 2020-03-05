@@ -8,7 +8,7 @@ body a {
 
 #content a {
   /* blue */
-  color: #3490dc;
+  color: #5661b3;
   text-decoration: none;
 }
 
@@ -50,7 +50,7 @@ pre {
 
 blockquote {
   /* blue */
-  border: 1px solid #3490dc;
+  border: 1px solid #5661b3;
   border-left-width: 0.5rem;
   padding: 0.5rem;
   margin: 2rem 0;
@@ -89,15 +89,13 @@ blockquote {
 
 .page-item:hover {
   /* blue */
-  background-color: #3490dc;
-  border-radius: 50%;
+  color: #5661b3;
   opacity: 0.5;
 }
 
 .page-item:active {
   /* blue */
-  background-color: #3490dc;
-  border-radius: 50%;
+  color: #5661b3;
   opacity: 1;
 }
 
@@ -108,19 +106,19 @@ blockquote {
 }
 
 .page-item:hover .page-link {
-  color: white;
+  color: #5661b3;
   opacity: 1;
 }
 
 .active {
   /* blue */
-  background-color: #3490dc;
-  border-radius: 50%;
+  color: #5661b3;
+  font-weight: 700;
 }
 
 .active .page-link {
   /* blue-lightest */
-  color: #eff8ff;
+  color: #5661b3;
 }
 
 .disabled {
