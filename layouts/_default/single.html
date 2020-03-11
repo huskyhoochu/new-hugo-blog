@@ -16,7 +16,7 @@
     <p class="text-sm">
         {{ if .Params.tags }}
           {{ range .Params.tags }}
-            <a class="lg:text-sm sm:text-xs text-blue font-bold mr-1" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+            <a class="lg:text-sm sm:text-xs text-indigo-dark font-bold mr-1" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
           {{ end }}
         {{ end }}
     </p>
@@ -29,9 +29,9 @@
       {{ with .NextPage }}
         <a class="previous" href="{{.Permalink}}">
           <button class="rounded p-2 my-2
-                          border hover:border-blue
-                          text-blue hover:text-white
-                          bg-white hover:bg-blue">
+                          border hover:border-indigo-dark
+                          text-indigo-dark hover:text-white
+                          bg-white hover:bg-indigo-dark">
             ⬅︎
           </button>
         </a>
@@ -39,18 +39,18 @@
       <a class="list" href="{{ .Site.BaseURL }}">
         <button class="rounded w-48 p-2 my-2
                         text-center font-bold
-                        border hover:border-blue
-                        text-blue hover:text-white
-                        bg-white hover:bg-blue">
+                        border hover:border-indigo-dark
+                        text-indigo-dark hover:text-white
+                        bg-white hover:bg-indigo-dark">
           List
         </button>
       </a>
     {{ with .PrevPage }}
       <a class="next" href="{{.Permalink}}">
         <button class="rounded p-2 my-2
-                        border hover:border-blue
-                        text-blue hover:text-white
-                        bg-white hover:bg-blue">
+                        border hover:border-indigo-dark
+                        text-indigo-dark hover:text-white
+                        bg-white hover:bg-indigo-dark">
             ➡︎
         </button>
       </a>
