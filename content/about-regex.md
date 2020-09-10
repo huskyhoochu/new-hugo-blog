@@ -1,8 +1,8 @@
 ---
 title: "[TIL] 정규표현식에 관하여"
 description: "문자열 검색을 위한 만능 맥가이버 칼, 정규표현식을 알아봅니다"
-date: 2020-09-07T13:25:57+09:00
-draft: true
+date: 2020-09-10T09:25:57+09:00
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
@@ -94,10 +94,32 @@ design[0-9]\.txt
 
 `[0-9]`는 0에서 9에 해당하는 숫자 범위를 선택 가능하다. 이 범위는 문자로도 설정 가능한데, `[a-z]`는 소문자 영어, `[A-Z]`는 대문자 영어를 뜻한다.
 
+숫자, 대문자, 소문자를 모두 선택하려면 어떻게 해야 할까? `[0-9a-zA-Z]` 라고 표현할 수 있다.
+
+이게 너무 길다고 생각되지 않는가? `\w`를 쓰면 위의 범위 표현식과 동일한 효과를 낼 수 있다.
+
+거꾸로 원하는 집합 범위를 제외하고 찾고 싶을 때가 있을 수 있다. 이때는 `^`이라는 키워드를 집합 안에 붙여주면 된다. `[^0-9]`를 사용하면 숫자가 아닌 글자를 선택할 수 있게 된다.
+
 
 #### 반복 찾기
 
-#### 위치 찾기
+이메일 주소를 찾아야 할 때를 생각해 보자. `@`가 들어가야 하고, 마지막엔 주소를 표현하는 `.com`, 혹은 `.net` 등의 키워드가 들어간다. 어쨌든 `@`와 `.`이 표현되어야 하며, 그 사이에 어떤 아이디나 어떤 메일 호스팅 업체 주소가 들어가든지 통과되어야 한다. 그러자면 반드시 있어야 하는 키워드 사이에 몇 글자인지, 무슨 글자인지 모를 글자가 모두 선택되어야만 하는데, 어떻게 그럴 수 있을까?
+
+`+`기호를 붙이면 앞의 패턴이 하나 이상 반복되는 모든 케이스를 선택 가능하다.
+
+```
+// 이메일 문장
+abc1234@hello.com
+
+// 정규표현식
+\w+@\w+.\w+
+```
+
+식을 하나씩 뜯어보자. `\w+`는 모든 영문자와 숫자를 선택 가능하다. 따라서 `@` 이 오기 전까지 모든 형태의 아이디를 선택하는 역할을 한다. 그 후 메일 호스팅 업체를 선택하기 위해 `\w+.\w+`를 사용한다.
+
 
 #### 더 어려운 것들이 남아 있다
 
+사실 이 정도는 매우 초보적인 수준의 정규표현식이다. 하위표현식, 역참조 등의 더 훨씬 고급스러운 내용이 정규표현식에는 많다. <손에 잡히는 10분 정규표현식> 이라는 책을 추천하고 싶다. 간략한 숏컷만 정리한 카드를 제공하기도 하고 깊이 있는 내용을 함꼐 전달해준다.
+
+<div class="ttbReview"><table><tbody><tr><td><a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=196607460&amp;ttbkey=ttbdiavelo1719001&amp;COPYPaper=1" target="_blank"><img src="https://image.aladin.co.kr/product/19660/74/coveroff/8966262368_1.jpg" alt="" border="0"/></a></td><td align="left"  style="vertical-align:top;"><a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=196607460&amp;ttbkey=ttbdiavelo1719001&amp;COPYPaper=1" target="_blank" class="aladdin_title">손에 잡히는 10분 정규 표현식</a><br/>벤 포터 지음, 김경수 외 옮김/인사이트</td></tr></tbody></table></div>
