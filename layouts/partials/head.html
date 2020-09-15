@@ -28,5 +28,4 @@
   {{ $style := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/js/postcss.config.js")  | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 {{ end }}
-<script data-ad-client="ca-pub-7714688207671069" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
