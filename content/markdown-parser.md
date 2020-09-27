@@ -2,7 +2,7 @@
 title: "마크다운 파서 만들기 고군분투 (1)"
 description: "타입스크립트와 러스트로 마크다운 파서 만드는 과정을 소개합니다"
 date: 2020-09-27T14:15:01+09:00
-draft: true
+draft: false
 authors: "Husky"
 author_github: "https://github.com/huskyhoochu/"
 images: ["/favicon_package/android-chrome-512x512.png"]
