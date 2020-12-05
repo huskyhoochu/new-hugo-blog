@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35196133-9f5e-4c30-aa93-7e46c331b3b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/d3-graph/seoul-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/d3-graph/seoul-2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +23,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/signup-page" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/d3-graph" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -58,32 +60,22 @@
       <workItem from="1603520286175" duration="1286000" />
       <workItem from="1604063285543" duration="13000" />
       <workItem from="1604069637486" duration="1609000" />
+      <workItem from="1607158275624" duration="636000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1238" y="288" width="424" height="506" key="FileChooserDialogImpl" timestamp="1604063296289">
-      <screen x="48" y="27" width="1872" height="1053" />
-    </state>
-    <state x="1238" y="288" width="424" height="506" key="FileChooserDialogImpl/48.27.1872.1053@48.27.1872.1053" timestamp="1604063296289" />
-    <state width="878" height="264" key="GridCell.Tab.0.bottom" timestamp="1604071246822">
-      <screen x="48" y="27" width="1872" height="1053" />
-    </state>
-    <state width="878" height="264" key="GridCell.Tab.0.bottom/48.27.1872.1053@48.27.1872.1053" timestamp="1604071246822" />
-    <state width="878" height="264" key="GridCell.Tab.0.center" timestamp="1604071246822">
-      <screen x="48" y="27" width="1872" height="1053" />
-    </state>
-    <state width="878" height="264" key="GridCell.Tab.0.center/48.27.1872.1053@48.27.1872.1053" timestamp="1604071246822" />
-    <state width="878" height="264" key="GridCell.Tab.0.left" timestamp="1604071246822">
-      <screen x="48" y="27" width="1872" height="1053" />
-    </state>
-    <state width="878" height="264" key="GridCell.Tab.0.left/48.27.1872.1053@48.27.1872.1053" timestamp="1604071246822" />
-    <state width="878" height="264" key="GridCell.Tab.0.right" timestamp="1604071246822">
-      <screen x="48" y="27" width="1872" height="1053" />
-    </state>
-    <state width="878" height="264" key="GridCell.Tab.0.right/48.27.1872.1053@48.27.1872.1053" timestamp="1604071246822" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
