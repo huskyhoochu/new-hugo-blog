@@ -1,6 +1,6 @@
 ---
 title: "호이스팅과 var, let, const"
-description: ""
+description: "자바스크립트 기본기이면서 매우 중요한 개념을 되짚어봅니다"
 date: 2021-01-20T16:19:38+09:00
 draft: false
 authors: "Husky"
