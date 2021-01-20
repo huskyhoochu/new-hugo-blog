@@ -9,7 +9,7 @@ images: ["/favicon_package/android-chrome-512x512.png"]
 tags: ["javascript"]
 ---
 
-참고: [You don't know JS](http://aladin.kr/p/3oD3m)
+참고 서적: [You don't know JS](http://aladin.kr/p/3oD3m)
 
 
 #### 값이 없는 변수 VS 선언되지 않은 변수
