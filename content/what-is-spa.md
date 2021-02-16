@@ -1,6 +1,6 @@
 ---
 title: "SPA(Single Page Application) 이란?"
-description: ""
+description: "너무 당연하게 사용해 온 SPA. 어떻게 작동하는 것일까요?"
 date: 2021-02-16T14:00:23+09:00
 draft: false
 authors: "Husky"
