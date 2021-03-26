@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35196133-9f5e-4c30-aa93-7e46c331b3b7" name="Default Changelist" comment="" />
+    <list default="true" id="35196133-9f5e-4c30-aa93-7e46c331b3b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/dpi-ppi/dpi-ppi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/dpi-ppi/network.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/dpi-ppi/next-image.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config.toml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,16 +34,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/dpi-ppi" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Markdown" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/dpi-ppi" />
       <recent name="$PROJECT_DIR$/static/react-relay-github" />
       <recent name="$PROJECT_DIR$/static/signup-page" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/dpi-ppi" />
       <recent name="$PROJECT_DIR$/static/react-relay-github" />
     </key>
   </component>
@@ -70,7 +79,7 @@
       <workItem from="1604063285543" duration="13000" />
       <workItem from="1604069637486" duration="1609000" />
       <workItem from="1607158275624" duration="636000" />
-      <workItem from="1616716706769" duration="410000" />
+      <workItem from="1616716706769" duration="5768000" />
     </task>
     <servers />
   </component>
