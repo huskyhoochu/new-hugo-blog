@@ -28,6 +28,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static/react-relay-github" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -71,6 +72,9 @@
       <workItem from="1604063285543" duration="13000" />
       <workItem from="1604069637486" duration="1609000" />
       <workItem from="1607158275624" duration="636000" />
+      <workItem from="1612697071464" duration="1171000" />
+      <workItem from="1613383463101" duration="1758000" />
+      <workItem from="1614953310515" duration="26000" />
     </task>
     <servers />
   </component>
