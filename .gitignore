@@ -140,4 +140,4 @@ typings/
 
 
 .vercel
-.idea
+.idea/*
